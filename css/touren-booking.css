@@ -1,0 +1,704 @@
+/**
+ * TonyTours – Schnellbuchung (buchung.html / optional touren.html)
+ * Nutzt CSS-Variablen aus style.css (--orange, --radius, --shadow …).
+ */
+
+/* ─── Abschnitt „Tour direkt buchen“ ───────────────────────────────── */
+
+.quick-book-section {
+  padding-top: 48px;
+  padding-bottom: 64px;
+  background: linear-gradient(180deg, #fafafa 0%, #fff 32%, #f7f7f7 100%);
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.quick-book__intro {
+  max-width: 720px;
+  margin-bottom: 36px;
+}
+
+.quick-book__intro h2 {
+  margin-bottom: 10px;
+  color: var(--dark);
+}
+
+.quick-book__intro p {
+  margin: 0;
+  color: var(--mid-grey);
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+.quick-book__block-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--dark);
+  margin: 40px 0 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.quick-book__block-title::before {
+  content: "";
+  width: 4px;
+  height: 1.1em;
+  border-radius: 4px;
+  background: var(--orange);
+}
+
+/* Grid: Desktop 3 / Tablet 2 / Mobile 1 */
+.quick-book__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.quick-book-section--booking-page {
+  border-top: none;
+  padding-top: 34px;
+}
+
+.booking-page-catalog {
+  max-width: 1220px;
+  margin: 0 auto;
+}
+
+.quick-book__intro--booking-page {
+  max-width: 760px;
+  text-align: center;
+  margin: 0 auto 34px;
+}
+
+.quick-book__intro--booking-page p {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.quick-book__grid--ebike {
+  max-width: 980px;
+  margin-left: auto;
+  margin-right: auto;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.quick-book__grid--moto {
+  max-width: 1220px;
+  margin-left: auto;
+  margin-right: auto;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+@media (max-width: 1100px) {
+  .quick-book__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .quick-book__grid--moto {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .quick-book__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .quick-book__grid--ebike,
+  .quick-book__grid--moto {
+    max-width: 100%;
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ─── Buchungskarten ─────────────────────────────────────────────── */
+
+.book-card {
+  margin: 0;
+}
+
+.book-card__inner {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 18px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.book-card__inner:hover {
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.book-card--status-available .book-card__inner {
+  border-left: 4px solid var(--green);
+}
+
+.book-card--status-upcoming .book-card__inner {
+  border-left: 4px solid var(--mid-grey);
+}
+
+.book-card--status-inquiry .book-card__inner {
+  border-left: 4px solid var(--orange);
+}
+
+.book-card__top {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.book-card__thumb-wrap {
+  flex-shrink: 0;
+}
+
+.book-card__thumb {
+  width: 72px;
+  height: 72px;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.book-card__cat {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--orange);
+  margin-bottom: 6px;
+}
+
+.book-card__head {
+  min-height: 66px;
+}
+
+.book-card__title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  line-height: 1.35;
+  margin: 0;
+  color: var(--dark);
+}
+
+.book-card__pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.book-card__pill {
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--light-grey);
+  color: var(--dark-grey);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.book-card__pill--accent {
+  background: rgba(245, 166, 35, 0.12);
+  color: #a66b0a;
+  border-color: rgba(245, 166, 35, 0.35);
+}
+
+.book-card__highlights {
+  margin: 0 0 16px;
+  padding: 0 0 0 1.15rem;
+  flex: 1;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  color: var(--dark-grey);
+}
+
+.book-card__highlights li {
+  margin-bottom: 4px;
+}
+
+.book-card__cta {
+  width: 100%;
+  margin-top: auto;
+  padding: 12px 16px;
+  font-weight: 800;
+  font-size: 0.95rem;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+/* ─── Modal ─────────────────────────────────────────────────────── */
+
+.booking-modal[hidden] {
+  display: none !important;
+}
+
+.booking-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 12000;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 0;
+}
+
+@media (min-width: 600px) {
+  .booking-modal {
+    align-items: center;
+    padding: 24px;
+  }
+}
+
+.booking-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(26, 26, 26, 0.45);
+  backdrop-filter: blur(2px);
+}
+
+.booking-modal__panel {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 520px;
+  max-height: min(92vh, 720px);
+  overflow: auto;
+  background: var(--white);
+  border-radius: 16px 16px 0 0;
+  box-shadow: 0 -8px 40px rgba(0, 0, 0, 0.18);
+}
+
+@media (min-width: 600px) {
+  .booking-modal__panel {
+    border-radius: 16px;
+  }
+}
+
+.booking-modal__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 22px 22px 12px;
+  border-bottom: 1px solid #eee;
+  position: sticky;
+  top: 0;
+  background: var(--white);
+  z-index: 2;
+}
+
+.booking-modal__header h2 {
+  font-size: 1.35rem;
+  margin: 0 0 4px;
+}
+
+.booking-modal__sub {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--mid-grey);
+  font-weight: 600;
+}
+
+.booking-modal__close {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: var(--light-grey);
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--dark);
+  transition: background 0.2s;
+}
+
+.booking-modal__close:hover {
+  background: #e8e8e8;
+}
+
+.booking-modal__body {
+  padding: 20px 22px 26px;
+}
+
+.booking-steps {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--mid-grey);
+  margin-bottom: 16px;
+  letter-spacing: 0.02em;
+}
+
+/* Formular */
+
+.booking-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px 16px;
+}
+
+@media (max-width: 480px) {
+  .booking-form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.booking-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.booking-field--full {
+  grid-column: 1 / -1;
+}
+
+.booking-field label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--dark-grey);
+}
+
+.booking-optional {
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.booking-input,
+.booking-textarea {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-family: inherit;
+  background: #fff;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.booking-input:focus,
+.booking-textarea:focus {
+  outline: none;
+  border-color: var(--orange);
+  box-shadow: 0 0 0 3px rgba(245, 166, 35, 0.2);
+}
+
+.booking-input--invalid,
+.booking-textarea.booking-input--invalid {
+  border-color: #e74c3c;
+}
+
+.booking-textarea {
+  min-height: 88px;
+  resize: vertical;
+}
+
+.booking-field-error {
+  min-height: 1.1em;
+  font-size: 0.8rem;
+  color: #c0392b;
+  font-weight: 600;
+}
+
+.booking-tour-readonly {
+  padding: 11px 14px;
+  background: var(--light-grey);
+  border-radius: 10px;
+  font-weight: 700;
+  color: var(--dark);
+  font-size: 0.95rem;
+}
+
+.booking-privacy {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.booking-privacy input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin-top: 3px;
+  flex-shrink: 0;
+  accent-color: var(--orange);
+}
+
+.booking-privacy label {
+  font-weight: 600;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--dark-grey);
+}
+
+.booking-privacy a {
+  color: var(--orange);
+  font-weight: 700;
+}
+
+.booking-privacy .booking-field-error {
+  flex-basis: 100%;
+}
+
+.booking-checkout-lead {
+  margin: 0 0 14px;
+  font-size: 0.92rem;
+  color: var(--mid-grey);
+  line-height: 1.55;
+}
+
+.booking-payment-notice {
+  margin: 0 0 16px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: rgba(245, 166, 35, 0.12);
+  border: 1px solid rgba(245, 166, 35, 0.35);
+  color: #8b5a08;
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.booking-payment-notice--error {
+  background: rgba(231, 76, 60, 0.12);
+  border-color: rgba(231, 76, 60, 0.38);
+  color: #b43628;
+}
+
+.booking-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.booking-actions .btn {
+  flex: 1;
+  min-width: 140px;
+  padding: 14px 18px;
+  font-weight: 800;
+  border-radius: 10px;
+  cursor: pointer;
+  border: none;
+  font-size: 1rem;
+}
+
+.booking-actions .btn--ghost {
+  background: var(--light-grey);
+  color: var(--dark);
+  font-weight: 700;
+}
+
+.booking-actions .btn--ghost:hover {
+  background: #ebebeb;
+}
+
+/* Checkout-Zusammenfassung */
+
+.booking-summary {
+  background: #fafafa;
+  border-radius: 12px;
+  padding: 16px 18px;
+  margin-bottom: 20px;
+  border: 1px solid #eee;
+}
+
+.booking-summary__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 8px 0;
+  font-size: 0.92rem;
+  border-bottom: 1px solid #eee;
+}
+
+.booking-summary__row:last-child {
+  border-bottom: none;
+}
+
+.booking-summary__row--block {
+  flex-direction: column;
+}
+
+.booking-summary__row--block p {
+  margin: 6px 0 0;
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.booking-summary__row--total {
+  font-weight: 800;
+  font-size: 1rem;
+  color: var(--dark);
+}
+
+.booking-summary__row span:first-child {
+  color: var(--mid-grey);
+  font-weight: 600;
+}
+
+.booking-summary__divider {
+  height: 1px;
+  background: #e0e0e0;
+  margin: 10px 0;
+}
+
+.booking-summary__hint {
+  margin: 10px 0 0;
+  font-size: 0.82rem;
+  color: var(--mid-grey);
+  line-height: 1.45;
+}
+
+/* ─── Digitales Zusatzprodukt: GPX Upsell ─────────────────────────── */
+.gpx-offer-section {
+  padding-top: 12px;
+  padding-bottom: 70px;
+}
+
+.gpx-offer-card {
+  position: relative;
+  max-width: 1280px;
+  margin: 0 auto;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.22);
+  background: linear-gradient(130deg, #121a24 0%, #1b2e43 55%, #2f2314 100%);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 360px;
+}
+
+.gpx-offer__content {
+  padding: clamp(24px, 4vw, 46px);
+  color: #fff;
+  position: relative;
+  z-index: 2;
+}
+
+.gpx-offer__content h2 {
+  margin: 0 0 18px;
+  font-size: clamp(1.7rem, 3vw, 2.8rem);
+  font-weight: 900;
+  line-height: 1.2;
+  color: #fff;
+}
+
+.gpx-offer__story p {
+  margin: 0 0 12px;
+  color: rgba(255, 255, 255, 0.92);
+  line-height: 1.65;
+  font-size: 1rem;
+}
+
+.gpx-offer__badges {
+  margin-top: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.gpx-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  color: #fff;
+  font-size: 0.84rem;
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+.gpx-offer__cta-block {
+  margin-top: 22px;
+  text-align: center;
+}
+
+.gpx-offer__price {
+  margin: 0 0 12px;
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  font-weight: 900;
+  color: #fff;
+}
+
+.gpx-offer__cta {
+  min-width: 280px;
+  width: min(100%, 420px);
+  padding: 14px 20px;
+  font-size: 1.05rem;
+  font-weight: 900;
+  border-radius: 12px;
+  box-shadow: 0 0 0 0 rgba(245, 166, 35, 0.42), 0 10px 24px rgba(0, 0, 0, 0.22);
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.gpx-offer__cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 0 8px rgba(245, 166, 35, 0.16), 0 16px 30px rgba(0, 0, 0, 0.28);
+}
+
+.gpx-offer__trust {
+  margin: 12px 0 0;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.86rem;
+  line-height: 1.55;
+  font-weight: 700;
+}
+
+.gpx-offer__media {
+  position: relative;
+  min-height: 100%;
+  overflow: hidden;
+  border-left: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.gpx-offer__media::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(245, 166, 35, 0.18), transparent 55%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.38));
+}
+
+.gpx-offer__video {
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.gpx-offer__status {
+  margin: 10px 0 0;
+  padding: 8px 10px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.26);
+  color: #fff;
+  font-size: 0.84rem;
+  font-weight: 700;
+}
+
+@media (max-width: 980px) {
+  .gpx-offer-card {
+    grid-template-columns: 1fr;
+  }
+
+  .gpx-offer__media {
+    min-height: 220px;
+    border-left: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.09);
+  }
+}

@@ -1,0 +1,696 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Unsere Touren & Routen – geführte E-Bike-Abenteuer im Werra-Meißner-Kreis." />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css?v=20260331suedwest" />
+    <link rel="stylesheet" href="css/scroll-reveal.css?v=202604091" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <script src="https://unpkg.com/feather-icons"></script>
+    <title>TonyTours – Touren</title>
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="index.html" aria-label="TonyTours Startseite">
+          <img src="/assets/logo.jpeg" alt="TonyTours Logo" />
+        </a>
+
+        <nav class="nav-desktop" aria-label="Hauptnavigation">
+          <a class="nav-link" href="index.html">Home</a>
+          <a class="nav-link active" href="touren.html">Touren</a>
+          <a class="nav-link" href="aktuelles.html">Aktuelles</a>
+          <a class="nav-link" href="buchung.html">Buchen</a>
+          <a class="nav-link" href="kontakt.html">Kontakt</a>
+        </nav>
+
+        <div class="header-cta">
+          <a class="btn btn--primary btn-primary btn-book-header" href="buchung.html">Tour buchen</a>
+          <button class="hamburger" type="button" aria-label="Menü öffnen"><i data-feather="menu"></i></button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile overlay + navigation -->
+    <div class="mobile-overlay" aria-hidden="true"></div>
+    <nav class="mobile-nav" aria-label="Mobiles Menü">
+      <a href="index.html">Home</a>
+      <a href="touren.html">Touren</a>
+      <a href="aktuelles.html">Aktuelles</a>
+      <a href="buchung.html">Buchen</a>
+      <a href="kontakt.html">Kontakt</a>
+      <a class="btn btn--primary btn-primary mobile-cta" href="buchung.html">Tour buchen</a>
+    </nav>
+
+    <section class="hero page-hero touren-hero">
+      <!-- VIDEO HINTERGRUND (data-src: siehe main.js) -->
+      <video
+        id="video-touren"
+        class="touren-hero-video"
+        data-src="assets/Touren_hero.mp4?v=touren"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="auto"
+        aria-hidden="true"
+      ></video>
+
+      <!-- DUNKLER OVERLAY -->
+      <div class="touren-hero-overlay"></div>
+
+      <!-- INHALT -->
+      <div class="page-hero-content">
+        <h1>Unsere Touren & Routen</h1>
+        <p>Geführte E-Bike-Abenteuer im Werra-Meißner-Kreis</p>
+      </div>
+    </section>
+
+    <!-- Touren -->
+    <section class="section">
+      <div class="container">
+        <!-- Tour 1 (Featured) -->
+        <div id="tour-leuchtberg" class="tour-section tour-section--premium">
+          <div class="tour-section__media animate-on-scroll fade-up">
+            <img src="/assets/Leuchtberg_.jpg" alt="Leuchtberg-Tour mit Blick auf den Wanfrieder Hafen und die Route." />
+          </div>
+          <div class="tour-section__body animate-on-scroll slide-in-left">
+            <div class="tour-section__header">
+              <span class="badge badge--green">VERFÜGBAR</span>
+            </div>
+            <span class="tour-typ-badge ebike">E-Bike Tour</span>
+            <h2>Leuchtberg, Schäferhalle &amp; Wanfrieder Hafen</h2>
+
+            <div class="stats-bar" aria-label="Tour-Infos">
+              <span>34,7 km</span>
+              <span>3–4 Std</span>
+              <span>299 m Anstieg</span>
+              <span>Leicht–Mittel</span>
+            </div>
+
+            <p>
+              Von Eschwege aus führt diese Tour über den Leuchtberg zur historischen Schäferhalle
+              und weiter zum malerischen Wanfrieder Hafen. Abwechslungsreiche Landschaft, ruhige Wege
+              und kurze Stopps für Erklärungen und Fotos machen diese Tour zum Erlebnis.
+            </p>
+
+            <ul class="highlights">
+              <li class="highlight-item"><i data-feather="check-circle"></i><span>Auch für Einsteiger</span></li>
+              <li class="highlight-item"><i data-feather="check-circle"></i><span>E-Bike empfohlen</span></li>
+              <li class="highlight-item"><i data-feather="check-circle"></i><span>Kleine Gruppen</span></li>
+              <li class="highlight-item"><i data-feather="check-circle"></i><span>Fotostopps</span></li>
+            </ul>
+
+            <div class="tour-route-card">
+              <div class="tour-route-card__head">
+                <h3>Streckenvorschau</h3>
+                <span class="tour-route-card__note">Vorschau, keine GPS-Navigation</span>
+              </div>
+              <div class="tour-route-map" data-tour-map="tour-leuchtberg"></div>
+            </div>
+
+            <a class="btn btn--primary btn-primary" href="buchung.html">Tour buchen</a>
+          </div>
+        </div>
+
+        <!-- Tour 2 -->
+        <div id="tour-werratal" class="tour-section tour-section--reverse tour-section--premium" style="margin-top:26px;">
+          <div class="tour-section__media animate-on-scroll fade-up">
+            <img src="/assets/Werratal_Tour.jpg" alt="Werratal-Tour entlang ruhiger Wege am Werraufer." />
+          </div>
+          <div class="tour-section__body animate-on-scroll slide-in-right">
+            <div class="tour-section__header">
+              <span class="badge badge--green">VERFÜGBAR</span>
+            </div>
+            <span class="tour-typ-badge ebike">E-Bike Tour</span>
+            <h2>Wanfried &amp; Werraufer – eine entspannte Runde</h2>
+
+            <div class="stats-bar" aria-label="Tour-Infos (Platzhalter)">
+              <span>ca. 30–40 km</span>
+              <span>ca. 3–4 Std</span>
+              <span>Leicht</span>
+            </div>
+
+            <p>
+              Eine kurzweilige Tour mit viel Naturgefühl: Wir fahren entlang des Werraufers,
+              machen kleine Stopps für Fotos und lauschen Geschichten aus der Region.
+            </p>
+
+            <ul class="highlights">
+              <li class="highlight-item"><i data-feather="check-circle"></i><span>Ruhige Wege</span></li>
+              <li class="highlight-item"><i data-feather="check-circle"></i><span>Kleine Gruppen</span></li>
+              <li class="highlight-item"><i data-feather="check-circle"></i><span>Ideal zum Ankommen</span></li>
+            </ul>
+
+            <div class="tour-route-card">
+              <div class="tour-route-card__head">
+                <h3>Streckenvorschau</h3>
+                <span class="tour-route-card__note">Vorschau, keine GPS-Navigation</span>
+              </div>
+              <div class="tour-route-map" data-tour-map="tour-werratal"></div>
+            </div>
+
+            <a class="btn btn--primary btn-primary" href="buchung.html">Tour buchen</a>
+          </div>
+        </div>
+
+        <!-- Tour 3 -->
+        <div id="tour-hoher-meissner" class="tour-section tour-section--premium" style="margin-top:26px;">
+          <div class="tour-section__media animate-on-scroll fade-up">
+            <img src="/assets/Hoher_Meissner_Tour.jpg" alt="Hoher Meißner mit Naturpanorama und Aussichtspunkten." />
+          </div>
+          <div class="tour-section__body animate-on-scroll slide-in-left">
+            <div class="tour-section__header">
+              <span class="badge badge--green">VERFÜGBAR</span>
+            </div>
+            <span class="tour-typ-badge ebike">E-Bike Tour</span>
+            <h2>Hoher Meißner – Aussichten &amp; Naturmomente</h2>
+
+            <div class="stats-bar" aria-label="Tour-Infos (Platzhalter)">
+              <span>ca. 35–45 km</span>
+              <span>ca. 3–5 Std</span>
+              <span>Mittlere Steigungen</span>
+            </div>
+
+            <p>
+              Eine Tour für alle, die Natur lieben: Wir steuern Aussichtspunkte an,
+              fahren auf abwechslungsreichen Strecken und nehmen uns Zeit für Erklärungen.
+            </p>
+
+            <ul class="highlights">
+              <li class="highlight-item"><i data-feather="check-circle"></i><span>Natur &amp; Aussicht</span></li>
+              <li class="highlight-item"><i data-feather="check-circle"></i><span>Mit Tour-Infos</span></li>
+              <li class="highlight-item"><i data-feather="check-circle"></i><span>Gruppen wie es passt</span></li>
+            </ul>
+
+            <div class="tour-route-card">
+              <div class="tour-route-card__head">
+                <h3>Streckenvorschau</h3>
+                <span class="tour-route-card__note">Vorschau, keine GPS-Navigation</span>
+              </div>
+              <div class="tour-route-map" data-tour-map="tour-hoher-meissner"></div>
+            </div>
+
+            <a class="btn btn--primary btn-primary" href="buchung.html">Tour buchen</a>
+          </div>
+        </div>
+
+        <div class="touren-trenner animate-on-scroll fade-up">
+          <h2 class="touren-kategorie-titel">
+            Motorrad-Touren
+          </h2>
+          <p class="touren-kategorie-sub">
+            Kurvenreiche Strecken, beeindruckende Panoramen und
+            unvergessliche Erlebnisse rund um den Werra-Meißner-Kreis
+          </p>
+          <div class="touren-kategorie-linie"></div>
+        </div>
+
+        <!-- ── MOTORRAD TOUR 1 – Bild links ─────────── -->
+        <section id="tour-suedwest" class="tour-section tour-section--premium">
+          <div class="tour-image-side animate-on-scroll fade-up">
+            <div
+              class="tour-slideshow"
+              data-tour-slideshow
+              data-interval="5500"
+              role="region"
+              aria-roledescription="Karussell"
+              aria-label="Impressionen zur Südwest Tour"
+            >
+              <div class="tour-slideshow__viewport">
+                <img
+                  class="tour-slideshow__slide is-active"
+                  src="/assets/tour-suedwest-schwalbental.png"
+                  alt="Weiter Blick über das Schwalbental und die Hügel im warmen Licht – Panorama pur."
+                  width="1600"
+                  height="900"
+                  loading="eager"
+                  decoding="async"
+                />
+                <img
+                  class="tour-slideshow__slide"
+                  src="/assets/tour-suedwest-highwalk.png"
+                  alt="Die Hängeseilbrücke Highwalk über einem herbstlich gefärbten Tal."
+                  width="1600"
+                  height="900"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <img
+                  class="tour-slideshow__slide"
+                  src="/assets/tour-suedwest-alm.png"
+                  alt="Urige Almhütte und Jausenstation – ideal für die Brotzeit nach dem Highwalk."
+                  width="1600"
+                  height="900"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="tour-slideshow__controls" aria-hidden="false">
+                <button type="button" class="tour-slideshow__btn tour-slideshow__btn--prev" aria-label="Vorheriges Bild">
+                  <i data-feather="chevron-left"></i>
+                </button>
+                <button type="button" class="tour-slideshow__btn tour-slideshow__btn--next" aria-label="Nächstes Bild">
+                  <i data-feather="chevron-right"></i>
+                </button>
+              </div>
+              <div class="tour-slideshow__dots" role="tablist" aria-label="Fotoauswahl Südwest Tour"></div>
+            </div>
+          </div>
+          <div class="tour-content-side animate-on-scroll slide-in-left">
+            <span class="tour-typ-badge motorrad">Motorrad-Tour</span>
+            <h2>Südwest Tour – Abenteuer &amp; Panorama pur</h2>
+
+            <div class="tour-stats-bar">
+              <div class="tour-stat">
+                <i data-feather="clock"></i>
+                <div>
+                  <span class="stat-label">Gesamtdauer</span>
+                  <span class="stat-value">ca. 5 Stunden</span>
+                </div>
+              </div>
+              <div class="tour-stat">
+                <i data-feather="activity"></i>
+                <div>
+                  <span class="stat-label">Reine Fahrzeit</span>
+                  <span class="stat-value">ca. 3 Stunden</span>
+                </div>
+              </div>
+              <div class="tour-stat">
+                <i data-feather="map-pin"></i>
+                <div>
+                  <span class="stat-label">Start &amp; Ziel</span>
+                  <span class="stat-value">Werdchen, Eschwege</span>
+                </div>
+              </div>
+              <div class="tour-stat">
+                <i data-feather="users"></i>
+                <div>
+                  <span class="stat-label">Gruppen</span>
+                  <span class="stat-value">Kleine Gruppen</span>
+                </div>
+              </div>
+            </div>
+
+            <p class="tour-beschreibung">
+              Startpunkt ist das Werdchen in Eschwege – und dann geht es
+              direkt rein ins Kurvenparadies. Wir fahren durch das
+              wunderschöne Schwalbental am Hohen Meißner, vorbei an kleinen
+              verträumten Dörfern und genießen genau das, worauf es ankommt:
+              flüssige Kurven, wenig Verkehr und maximale Freiheit auf
+              kurvenreichen Nebenstrecken abseits des Alltags.
+            </p>
+
+            <div class="tour-highlight-box">
+              <h4>Highlight: Hängeseilbrücke „Highwalk“ – Rotenburg an der Fulda</h4>
+              <p>Das absolute Highlight wartet in Rotenburg an der Fulda.
+              Die spektakuläre Hängeseilbrücke sorgt für echte Gänsehaut-Momente
+              – bevor es zur wohlverdienten Brotzeit in der urigen Almhütte
+              direkt vor Ort geht.</p>
+              <ul>
+                <li><i data-feather="chevron-right"></i> 60 Meter Höhe</li>
+                <li><i data-feather="chevron-right"></i> 617 Meter Länge</li>
+                <li><i data-feather="chevron-right"></i> Gänsehaut garantiert</li>
+                <li><i data-feather="chevron-right"></i> Brotzeit in der Almhütte</li>
+              </ul>
+            </div>
+
+            <div class="tour-checklist">
+              <span><i data-feather="check-circle"></i> Schwalbental &amp; Hoher Meißner</span>
+              <span><i data-feather="check-circle"></i> Kurvenreiche Nebenstrecken</span>
+              <span><i data-feather="check-circle"></i> Hängeseilbrücke Highwalk</span>
+              <span><i data-feather="check-circle"></i> Almhütte &amp; Brotzeit</span>
+              <span><i data-feather="check-circle"></i> Wenig Verkehr</span>
+              <span><i data-feather="check-circle"></i> Kleine Gruppen</span>
+            </div>
+
+            <div class="tour-route-card">
+              <div class="tour-route-card__head">
+                <h3>Streckenvorschau</h3>
+                <span class="tour-route-card__note">Vorbereitete Route, noch ohne GPX-Import</span>
+              </div>
+              <div class="tour-route-map" data-tour-map="tour-suedwest"></div>
+            </div>
+
+            <div class="tour-preis-zeile">
+              <a href="buchung.html" class="btn-primary">Tour buchen</a>
+            </div>
+          </div>
+        </section>
+
+        <!-- ── MOTORRAD TOUR 2 – Bild rechts ─────────── -->
+        <section id="tour-suedost" class="tour-section tour-section--reverse tour-section--premium">
+          <div class="tour-image-side animate-on-scroll fade-up">
+            <div
+              class="tour-slideshow"
+              data-tour-slideshow
+              data-interval="5500"
+              role="region"
+              aria-roledescription="Karussell"
+              aria-label="Impressionen zur Südost Tour"
+            >
+              <div class="tour-slideshow__viewport">
+                <img
+                  class="tour-slideshow__slide is-active"
+                  src="/assets/tour-suedost-01-burg.png"
+                  alt="Burganlage mit roten Dächern auf einem Hügel und weitem Blick über das Tal."
+                  width="1600"
+                  height="900"
+                  loading="eager"
+                  decoding="async"
+                />
+                <img
+                  class="tour-slideshow__slide"
+                  src="/assets/tour-suedost-02-probstei-zella.png"
+                  alt="Historische Fachwerkanlage der Probstei Zella mit grünem Hügel im Hintergrund."
+                  width="1600"
+                  height="900"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <img
+                  class="tour-slideshow__slide"
+                  src="/assets/tour-suedost-03-automobile-welt-eisenach.png"
+                  alt="Automobile Welt Eisenach mit historischen Fahrzeugen in der Ausstellungshalle."
+                  width="1600"
+                  height="900"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="tour-slideshow__controls" aria-hidden="false">
+                <button type="button" class="tour-slideshow__btn tour-slideshow__btn--prev" aria-label="Vorheriges Bild">
+                  <i data-feather="chevron-left"></i>
+                </button>
+                <button type="button" class="tour-slideshow__btn tour-slideshow__btn--next" aria-label="Nächstes Bild">
+                  <i data-feather="chevron-right"></i>
+                </button>
+              </div>
+              <div class="tour-slideshow__dots" role="tablist" aria-label="Fotoauswahl Südost Tour"></div>
+            </div>
+          </div>
+          <div class="tour-content-side animate-on-scroll slide-in-right">
+            <span class="tour-typ-badge motorrad">Motorrad-Tour</span>
+            <h2>Südost Tour – Kurven, Geschichte &amp; echte Motorleidenschaft</h2>
+
+            <div class="tour-stats-bar">
+              <div class="tour-stat">
+                <i data-feather="clock"></i>
+                <div>
+                  <span class="stat-label">Gesamtdauer</span>
+                  <span class="stat-value">ca. 5 Stunden</span>
+                </div>
+              </div>
+              <div class="tour-stat">
+                <i data-feather="activity"></i>
+                <div>
+                  <span class="stat-label">Reine Fahrzeit</span>
+                  <span class="stat-value">ca. 3 Stunden</span>
+                </div>
+              </div>
+              <div class="tour-stat">
+                <i data-feather="map-pin"></i>
+                <div>
+                  <span class="stat-label">Start &amp; Ziel</span>
+                  <span class="stat-value">Werdchen, Eschwege</span>
+                </div>
+              </div>
+              <div class="tour-stat">
+                <i data-feather="users"></i>
+                <div>
+                  <span class="stat-label">Gruppen</span>
+                  <span class="stat-value">Kleine Gruppen</span>
+                </div>
+              </div>
+            </div>
+
+            <p class="tour-beschreibung">
+              Wir starten am Werdchen in Eschwege und folgen dem wunderschönen
+              Verlauf des Werratals – begleitet von sanften Hügeln und herrlichen
+              Kurven. Erster Stopp ist die beeindruckende Burg Normannstein, wo
+              wir eine Fotopause einlegen und den weiten Blick über das Werratal
+              genießen. Weiter geht es über typisch kurvenreiche Straßen unserer
+              Region bis zur Probstei Zella – für eine gemütliche Kaffeepause
+              in besonderer Atmosphäre.
+            </p>
+
+            <div class="tour-highlight-box">
+              <h4>Highlight: Automobile Welt Eisenach</h4>
+              <p>Frisch gestärkt starten wir in Richtung Eisenach zur
+              Automobile Welt Eisenach – ein echtes Highlight für alle,
+              die Benzin im Blut haben. Hier tauchen wir ein in die
+              Geschichte des Fahrzeugbaus rund um die legendären
+              Wartburg-Modelle.</p>
+              <ul>
+                <li><i data-feather="chevron-right"></i> Burg Normannstein mit Panoramablick</li>
+                <li><i data-feather="chevron-right"></i> Kaffeepause Probstei Zella</li>
+                <li><i data-feather="chevron-right"></i> Automobile Welt Eisenach</li>
+                <li><i data-feather="chevron-right"></i> Legendäre Wartburg-Modelle</li>
+              </ul>
+            </div>
+
+            <div class="tour-checklist">
+              <span><i data-feather="check-circle"></i> Werratal-Panorama</span>
+              <span><i data-feather="check-circle"></i> Burg Normannstein</span>
+              <span><i data-feather="check-circle"></i> Probstei Zella</span>
+              <span><i data-feather="check-circle"></i> Automobile Welt Eisenach</span>
+              <span><i data-feather="check-circle"></i> Kurvenreiche Strecken</span>
+              <span><i data-feather="check-circle"></i> Kleine Gruppen</span>
+            </div>
+
+            <div class="tour-route-card">
+              <div class="tour-route-card__head">
+                <h3>Streckenvorschau</h3>
+                <span class="tour-route-card__note">Vorbereitete Route, noch ohne GPX-Import</span>
+              </div>
+              <div class="tour-route-map" data-tour-map="tour-suedost"></div>
+            </div>
+
+            <div class="tour-preis-zeile">
+              <a href="buchung.html" class="btn-primary">Tour buchen</a>
+            </div>
+          </div>
+        </section>
+
+        <!-- ── MOTORRAD TOUR 3 – Bild links ─────────── -->
+        <section id="tour-nordwest" class="tour-section tour-section--premium">
+          <div class="tour-image-side animate-on-scroll fade-up">
+            <div
+              class="tour-slideshow"
+              data-tour-slideshow
+              data-interval="5500"
+              role="region"
+              aria-roledescription="Karussell"
+              aria-label="Impressionen zur Nordwest Tour"
+            >
+              <div class="tour-slideshow__viewport">
+                <img
+                  class="tour-slideshow__slide is-active"
+                  src="/assets/tour-nordwest-02-weser.png"
+                  alt="Wesertal in der Vogelperspektive: Fluss, Ufer und Ortschaft zwischen grünen Hügeln."
+                  width="1600"
+                  height="900"
+                  loading="eager"
+                  decoding="async"
+                />
+                <img
+                  class="tour-slideshow__slide"
+                  src="/assets/tour-nordwest-01-hoher-meissner.png"
+                  alt="Bergsee im Talkessel am Hohen Meißner – Felswände, Wald und weite Hügellandschaft."
+                  width="1600"
+                  height="900"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <img
+                  class="tour-slideshow__slide"
+                  src="/assets/tour-nordwest-03-biker-treff.png"
+                  alt="Motorradfahrer und zahlreiche Maschinen vor einem traditionellen Fachwerk-Gasthaus – Biker-Treffpunkt in der Region."
+                  width="1600"
+                  height="900"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="tour-slideshow__controls" aria-hidden="false">
+                <button type="button" class="tour-slideshow__btn tour-slideshow__btn--prev" aria-label="Vorheriges Bild">
+                  <i data-feather="chevron-left"></i>
+                </button>
+                <button type="button" class="tour-slideshow__btn tour-slideshow__btn--next" aria-label="Nächstes Bild">
+                  <i data-feather="chevron-right"></i>
+                </button>
+              </div>
+              <div class="tour-slideshow__dots" role="tablist" aria-label="Fotoauswahl Nordwest Tour"></div>
+            </div>
+          </div>
+          <div class="tour-content-side animate-on-scroll slide-in-left">
+            <span class="tour-typ-badge motorrad">Motorrad-Tour</span>
+            <h2>Nordwest Tour – Weser, Fähre &amp; echtes Biker-Feeling</h2>
+
+            <div class="tour-stats-bar">
+              <div class="tour-stat">
+                <i data-feather="clock"></i>
+                <div>
+                  <span class="stat-label">Gesamtdauer</span>
+                  <span class="stat-value">ca. 5 Stunden</span>
+                </div>
+              </div>
+              <div class="tour-stat">
+                <i data-feather="activity"></i>
+                <div>
+                  <span class="stat-label">Reine Fahrzeit</span>
+                  <span class="stat-value">ca. 3 Stunden</span>
+                </div>
+              </div>
+              <div class="tour-stat">
+                <i data-feather="map-pin"></i>
+                <div>
+                  <span class="stat-label">Start &amp; Ziel</span>
+                  <span class="stat-value">Werdchen, Eschwege</span>
+                </div>
+              </div>
+              <div class="tour-stat">
+                <i data-feather="users"></i>
+                <div>
+                  <span class="stat-label">Gruppen</span>
+                  <span class="stat-value">Kleine Gruppen</span>
+                </div>
+              </div>
+            </div>
+
+            <p class="tour-beschreibung">
+              Nach einem kurvenreichen Start verlassen wir Eschwege in
+              Richtung Nordwesten und tauchen tief in die schönsten
+              Nebenstrecken der Region ein. Nach etwa 1,5 Stunden Fahrzeit
+              erreichen wir das Fährhaus Hemeln – einen bekannten Treffpunkt
+              für Motorradfahrer direkt an der Weser. Hier spürt man sofort:
+              Das ist echtes Biker-Territorium. Nach einer ordentlichen
+              Brotzeit setzen wir mit der Fähre über die Weser – ein kleines
+              Abenteuer für sich.
+            </p>
+
+            <div class="tour-highlight-box">
+              <h4>Highlight: Fähre über die Weser &amp; Hoher Meißner</h4>
+              <p>Auf der anderen Seite geht es weiter Richtung Süden,
+              durch idyllische Dörfer und über den Hohen Meißner.
+              Hier erwarten uns Aussichtspunkte, die für echte
+              Wow-Momente sorgen – bevor wir entspannt zurück
+              nach Eschwege rollen.</p>
+              <ul>
+                <li><i data-feather="chevron-right"></i> Fährhaus Hemeln – Biker-Treffpunkt</li>
+                <li><i data-feather="chevron-right"></i> Übersetzen mit der Weser-Fähre</li>
+                <li><i data-feather="chevron-right"></i> Aussichtspunkte Hoher Meißner</li>
+                <li><i data-feather="chevron-right"></i> Wow-Momente garantiert</li>
+              </ul>
+            </div>
+
+            <div class="tour-checklist">
+              <span><i data-feather="check-circle"></i> Fährhaus Hemeln</span>
+              <span><i data-feather="check-circle"></i> Weser-Fähre</span>
+              <span><i data-feather="check-circle"></i> Hoher Meißner</span>
+              <span><i data-feather="check-circle"></i> Echte Nebenstrecken</span>
+              <span><i data-feather="check-circle"></i> Wow-Aussichtspunkte</span>
+              <span><i data-feather="check-circle"></i> Kleine Gruppen</span>
+            </div>
+
+            <div class="tour-route-card">
+              <div class="tour-route-card__head">
+                <h3>Streckenvorschau</h3>
+                <span class="tour-route-card__note">Vorbereitete Route, noch ohne GPX-Import</span>
+              </div>
+              <div class="tour-route-map" data-tour-map="tour-nordwest"></div>
+            </div>
+
+            <div class="tour-preis-zeile">
+              <a href="buchung.html" class="btn-primary">Tour buchen</a>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container footer-top">
+        <div class="footer-brand">
+          <a class="brand" href="index.html">
+            <img src="/assets/logo.jpeg" alt="TonyTours Logo" />
+          </a>
+          <div class="tagline">Geführte E-Bike-Touren im Werra-Meißner-Kreis</div>
+          <div class="social-row" aria-label="TonyTours bei Instagram">
+            <a
+              class="footer-social-icon"
+              href="https://www.instagram.com/tonytours2026/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="TonyTours auf Instagram (@tonytours2026)"
+            ><i data-feather="instagram"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h3>Quick links</h3>
+          <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="touren.html">Touren</a>
+            <a href="aktuelles.html">Aktuelles</a>
+            <a href="buchung.html">Buchen</a>
+            <a href="kontakt.html">Kontakt</a>
+            <a href="impressum.html">Impressum</a>
+            <a href="datenschutz.html">Datenschutz</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h3>Kontakt</h3>
+          <div class="footer-links">
+            <div class="contact-line">
+              <i data-feather="map-pin"></i><span>Eschwege, Werra-Meißner-Kreis</span>
+            </div>
+            <a href="mailto:info@tonytours.de" class="footer-kontakt-link">
+              <i data-feather="mail"></i>
+              info@tonytours.de
+            </a>
+            <a href="tel:+4915733250134" class="footer-kontakt-link">
+              <i data-feather="phone"></i>
+              +49 157 33250134
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="container bottom-inner">
+          <span>© 2026 TonyTours</span>
+          <a href="impressum.html">Impressum</a>
+          <span>·</span>
+          <a href="datenschutz.html">Datenschutz</a>
+        </div>
+      </div>
+    </footer>
+
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <script src="js/main.js?v=202604205"></script>
+    <script src="js/touren-maps.js?v=2026040901"></script>
+    <script src="js/scroll-reveal.js?v=202604091"></script>
+    <script>
+      feather.replace();
+    </script>
+  </body>
+</html>

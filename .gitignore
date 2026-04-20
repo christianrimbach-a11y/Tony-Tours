@@ -1,0 +1,18 @@
+# Home-Verzeichnis: nur Website-Dateien versionieren, persönliche Ordner ausblenden
+.DS_Store
+.CFUserTextEncoding
+.Trash/
+Desktop/
+Documents/
+Downloads/
+Library/
+Movies/
+Music/
+Pictures/
+Public/
+Applications/
+.cups/
+.cursor/
+.npm/
+.zsh_history
+web3-landing/

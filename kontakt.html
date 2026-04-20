@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Kontakt – TonyTours aus Eschwege. Schreib uns und wir antworten innerhalb von 24 Stunden." />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/scroll-reveal.css?v=202604092" />
+    <script src="https://unpkg.com/feather-icons"></script>
+    <title>TonyTours – Kontakt</title>
+  </head>
+  <body class="page-kontakt">
+    <!-- Header -->
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="index.html" aria-label="TonyTours Startseite">
+          <img src="/assets/logo.jpeg" alt="TonyTours Logo" />
+        </a>
+
+        <nav class="nav-desktop" aria-label="Hauptnavigation">
+          <a class="nav-link" href="index.html">Home</a>
+          <a class="nav-link" href="touren.html">Touren</a>
+          <a class="nav-link" href="aktuelles.html">Aktuelles</a>
+          <a class="nav-link" href="buchung.html">Buchen</a>
+          <a class="nav-link active" href="kontakt.html">Kontakt</a>
+        </nav>
+
+        <div class="header-cta">
+          <a class="btn btn--primary btn-primary btn-book-header" href="buchung.html">Jetzt buchen</a>
+          <button class="hamburger" type="button" aria-label="Menü öffnen"><i data-feather="menu"></i></button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile overlay + navigation -->
+    <div class="mobile-overlay" aria-hidden="true"></div>
+    <nav class="mobile-nav" aria-label="Mobiles Menü">
+      <a href="index.html">Home</a>
+      <a href="touren.html">Touren</a>
+      <a href="aktuelles.html">Aktuelles</a>
+      <a href="buchung.html">Buchen</a>
+      <a href="kontakt.html">Kontakt</a>
+      <a class="btn btn--primary btn-primary mobile-cta" href="buchung.html">Jetzt buchen</a>
+    </nav>
+
+    <!-- Hero (orange wie ehemals Buchen) -->
+    <section class="cta-hero" aria-label="Kontakt Hero">
+      <div class="container animate-on-scroll fade-up">
+        <h1>Kontakt</h1>
+        <p>Fragen zur Tour? Schreib mir – ich antworte schnell und persönlich.</p>
+      </div>
+    </section>
+
+    <!-- Kontakt Layout -->
+    <section class="section section--kontakt">
+      <div class="container">
+        <div class="contact-wrap contact-wrap--split">
+          <div class="contact-card contact-card--aside">
+            <h2 class="animate-on-scroll fade-up">So erreichst du uns</h2>
+            <p class="contact-line animate-on-scroll fade-up">
+              <i data-feather="map-pin"></i><span>Eschwege, Werra-Meißner-Kreis, Hessen</span>
+            </p>
+            <a href="mailto:info@tonytours.de" class="footer-kontakt-link animate-on-scroll fade-up">
+              <i data-feather="mail"></i>
+              info@tonytours.de
+            </a>
+            <a href="tel:+4915733250134" class="footer-kontakt-link animate-on-scroll fade-up">
+              <i data-feather="phone"></i>
+              +49 157 33250134
+            </a>
+            <p class="animate-on-scroll fade-up"><b>Wir antworten innerhalb von 24 Stunden.</b></p>
+
+            <div class="social-icon-row animate-on-scroll fade-up" role="group" aria-label="TonyTours in den sozialen Medien">
+              <a
+                class="social-icon"
+                href="https://www.instagram.com/tonytours2026/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="TonyTours auf Instagram (@tonytours2026)"
+              >
+                <i data-feather="instagram"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="form-wrap form-wrap--kontakt-main">
+            <h2 class="animate-on-scroll fade-up">Schreib uns</h2>
+
+            <form id="kontaktForm" class="kontakt-form" novalidate>
+              <div class="form-row animate-on-scroll fade-up">
+                <div class="form-group">
+                  <label for="k_name">Name <span aria-hidden="true">*</span></label>
+                  <input type="text" id="k_name" name="name" required autocomplete="name" placeholder="Dein Name" />
+                </div>
+                <div class="form-group">
+                  <label for="k_email">E-Mail <span aria-hidden="true">*</span></label>
+                  <input type="email" id="k_email" name="email" required autocomplete="email" placeholder="deine@email.de" />
+                </div>
+              </div>
+
+              <div class="form-group animate-on-scroll fade-up">
+                <label for="k_betreff">Betreff <span aria-hidden="true">*</span></label>
+                <input type="text" id="k_betreff" name="betreff" required placeholder="Worum geht es?" />
+              </div>
+
+              <div class="form-group animate-on-scroll fade-up">
+                <label for="k_nachricht">Nachricht <span aria-hidden="true">*</span></label>
+                <textarea id="k_nachricht" name="nachricht" rows="5" required placeholder="Deine Nachricht…"></textarea>
+              </div>
+
+              <div id="formErfolg" class="form-erfolg" hidden>
+                Vielen Dank! Deine Nachricht wurde gesendet. Wir melden uns innerhalb von 24 Stunden.
+              </div>
+              <div id="formFehler" class="form-fehler" hidden>
+                Etwas ist schiefgelaufen. Bitte versuche es erneut oder schreib direkt an
+                <a href="mailto:info@tonytours.de">info@tonytours.de</a>.
+              </div>
+
+              <div class="form-actions form-actions--kontakt animate-on-scroll fade-up">
+                <button type="submit" class="btn btn--primary btn-primary btn-submit btn--wide">Nachricht senden</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--kontakt-map" aria-labelledby="region-map-heading">
+      <div class="container">
+        <div class="region-map">
+          <div class="region-map__intro">
+            <h2 class="region-map__title animate-on-scroll fade-up" id="region-map-heading">Hier sind wir unterwegs</h2>
+            <p class="region-map__lead animate-on-scroll fade-up">Geführte Touren im Werra-Meißner-Kreis und Umgebung.</p>
+          </div>
+          <div class="region-map__embed animate-on-scroll fade-up">
+            <iframe
+              title="Karte: Werra-Meißner-Kreis und Region Eschwege"
+              src="https://www.openstreetmap.org/export/embed.html?bbox=9.52%2C50.92%2C10.48%2C51.40&amp;layer=mapnik"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <p class="region-map__attr animate-on-scroll fade-up">
+            Karte ©
+            <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer"
+              >OpenStreetMap-Mitwirkende</a
+            >
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container footer-top">
+        <div class="footer-brand animate-on-scroll fade-up">
+          <a class="brand" href="index.html">
+            <img src="/assets/logo.jpeg" alt="TonyTours Logo" />
+          </a>
+          <div class="tagline">Geführte E-Bike-Touren im Werra-Meißner-Kreis</div>
+          <div class="social-row" aria-label="TonyTours bei Instagram">
+            <a
+              class="footer-social-icon"
+              href="https://www.instagram.com/tonytours2026/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="TonyTours auf Instagram (@tonytours2026)"
+            ><i data-feather="instagram"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col animate-on-scroll fade-up">
+          <h3>Quick links</h3>
+          <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="touren.html">Touren</a>
+            <a href="aktuelles.html">Aktuelles</a>
+            <a href="buchung.html">Buchen</a>
+            <a href="kontakt.html">Kontakt</a>
+            <a href="impressum.html">Impressum</a>
+            <a href="datenschutz.html">Datenschutz</a>
+          </div>
+        </div>
+
+        <div class="footer-col animate-on-scroll fade-up">
+          <h3>Kontakt</h3>
+          <div class="footer-links">
+            <div class="contact-line">
+              <i data-feather="map-pin"></i><span>Eschwege, Werra-Meißner-Kreis</span>
+            </div>
+            <a href="mailto:info@tonytours.de" class="footer-kontakt-link">
+              <i data-feather="mail"></i>
+              info@tonytours.de
+            </a>
+            <a href="tel:+4915733250134" class="footer-kontakt-link">
+              <i data-feather="phone"></i>
+              +49 157 33250134
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom animate-on-scroll fade-up">
+        <div class="container bottom-inner">
+          <span>© 2026 TonyTours</span>
+          <a href="impressum.html">Impressum</a>
+          <span>·</span>
+          <a href="datenschutz.html">Datenschutz</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/scroll-reveal.js?v=202604092"></script>
+    <script>feather.replace()</script>
+  </body>
+</html>

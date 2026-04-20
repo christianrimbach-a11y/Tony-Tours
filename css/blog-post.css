@@ -1,0 +1,270 @@
+/* ── POST HERO ───────────────────────────────── */
+.post-hero {
+  position: relative;
+  height: 70vh;
+  min-height: 480px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.post-hero-slideshow {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.post-hero-slideshow .slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 1 !important;
+  transition: none !important;
+}
+
+.post-hero-slideshow .slide.active {
+  opacity: 1 !important;
+}
+
+/* Placeholder gradient slides (replaced per page or with real images via inline style) */
+.slide-1 { background: linear-gradient(135deg, #2C3E50, #27AE60); }
+.slide-2 { background: linear-gradient(135deg, #1A5C2A, #2E86C1); }
+.slide-3 { background: linear-gradient(135deg, #D4881A, #2C3E50); }
+
+.post-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.80) 0%,
+    rgba(0,0,0,0.35) 50%,
+    rgba(0,0,0,0.10) 100%
+  );
+  z-index: 1;
+}
+
+.post-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 80px 60px;
+  width: 100%;
+}
+
+.post-title {
+  color: white;
+  font-size: clamp(1.8rem, 4vw, 3.2rem);
+  font-weight: 900;
+  max-width: 800px;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.3);
+}
+
+.post-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  color: rgba(255,255,255,0.85);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.post-meta span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.post-meta svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* ── MAIN CONTENT LAYOUT ─────────────────────── */
+.post-main {
+  background: #FAFAFA;
+  padding: 80px 0;
+}
+
+.post-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 80px;
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 60px;
+  align-items: start;
+}
+
+/* ── ARTICLE ─────────────────────────────────── */
+.post-content {
+  background: white;
+  border-radius: 20px;
+  padding: 60px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+}
+
+.post-content h2 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #1A1A1A;
+  margin-top: 48px;
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 3px solid #F5A623;
+  display: inline-block;
+}
+
+.post-content h2:first-child,
+.post-content > .post-body-block:first-child h2 {
+  margin-top: 0;
+}
+
+.post-content p {
+  color: #444444;
+  line-height: 1.9;
+  font-size: 1.05rem;
+  margin-bottom: 20px;
+}
+
+/* ── CTA BOX ─────────────────────────────────── */
+.post-cta-box {
+  background: linear-gradient(135deg, #F5A623, #D4881A);
+  border-radius: 16px;
+  padding: 40px;
+  text-align: center;
+  margin-top: 60px;
+}
+
+.post-cta-box h3 {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 900;
+  margin-bottom: 10px;
+}
+
+.post-cta-box p {
+  color: rgba(255,255,255,0.9);
+  margin-bottom: 24px;
+}
+
+.post-cta-box .btn-primary {
+  background: white !important;
+  color: #F5A623 !important;
+  font-weight: 800;
+  padding: 14px 36px;
+  border-radius: 50px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1rem;
+  border: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.post-cta-box .btn-primary:hover {
+  background: #fff7e6 !important;
+  color: #F5A623 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* ── SIDEBAR ─────────────────────────────────── */
+.post-sidebar {
+  position: sticky;
+  top: 110px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.sidebar-card {
+  background: white;
+  border-radius: 16px;
+  padding: 28px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+}
+
+.sidebar-card h4 {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #1A1A1A;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #F5F5F5;
+}
+
+.tour-facts {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tour-facts li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #333333;
+}
+
+.tour-facts svg {
+  width: 18px;
+  height: 18px;
+  color: #F5A623;
+  flex-shrink: 0;
+}
+
+.btn-full {
+  width: 100%;
+  text-align: center;
+  display: block;
+}
+
+.related-posts {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.related-posts li a {
+  color: #333333;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding-left: 12px;
+  border-left: 3px solid #F5A623;
+  display: block;
+  transition: color 0.2s;
+}
+
+.related-posts li a:hover {
+  color: #F5A623;
+}
+
+/* ── RESPONSIVE ──────────────────────────────── */
+@media (max-width: 1024px) {
+  .post-container {
+    grid-template-columns: 1fr;
+    padding: 0 40px;
+  }
+  .post-sidebar { position: static; }
+  .post-hero-content { padding: 0 40px 50px; }
+}
+
+@media (max-width: 768px) {
+  .post-container { padding: 0 20px; }
+  .post-content { padding: 30px 24px; }
+  .post-hero-content { padding: 0 20px 40px; }
+  .post-hero { height: 55vh; }
+}

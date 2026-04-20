@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Geführte E-Bike-Touren im Werra-Meißner-Kreis – mit Tony in Eschwege & Umgebung." />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/touren-booking.css?v=2026040902" />
+    <link rel="stylesheet" href="css/scroll-reveal.css?v=202604091" />
+    <script src="https://unpkg.com/feather-icons"></script>
+    <title>TonyTours – Geführte E-Bike-Touren</title>
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="index.html" aria-label="TonyTours Startseite">
+          <img src="/assets/logo.jpeg" alt="TonyTours Logo" />
+        </a>
+
+        <nav class="nav-desktop" aria-label="Hauptnavigation">
+          <a class="nav-link active" href="index.html">Home</a>
+          <a class="nav-link" href="touren.html">Touren</a>
+          <a class="nav-link" href="aktuelles.html">Aktuelles</a>
+          <a class="nav-link" href="buchung.html">Buchen</a>
+          <a class="nav-link" href="kontakt.html">Kontakt</a>
+        </nav>
+
+        <div class="header-cta">
+          <a class="btn btn--primary btn-primary btn-book-header" href="buchung.html">Jetzt buchen</a>
+          <button class="hamburger" type="button" aria-label="Menü öffnen"><i data-feather="menu"></i></button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile overlay + navigation -->
+    <div class="mobile-overlay" aria-hidden="true"></div>
+    <nav class="mobile-nav" aria-label="Mobiles Menü">
+      <a href="index.html">Home</a>
+      <a href="touren.html">Touren</a>
+      <a href="aktuelles.html">Aktuelles</a>
+      <a href="buchung.html">Buchen</a>
+      <a href="kontakt.html">Kontakt</a>
+      <a class="btn btn--primary btn-primary mobile-cta" href="buchung.html">Jetzt buchen</a>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero hero--full hero--video" aria-label="TonyTours Hero">
+      <video
+        id="video-hero"
+        class="hero-video"
+        data-src="assets/Homepagevideo.mp4?v=hero"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+        aria-hidden="true"
+      ></video>
+
+      <div class="container animate-on-scroll fade-up">
+        <h1>Entdecke den Werra-Meißner-Kreis auf zwei Rädern</h1>
+        <p>Geführte E-Bike- und Motorrad-Touren mit Tony · Eschwege & Umgebung</p>
+
+        <div class="hero-actions">
+          <a class="btn btn--primary btn-primary" href="touren.html">Touren entdecken</a>
+          <a class="btn btn--outline" href="#ueber-uns">Mehr erfahren</a>
+        </div>
+      </div>
+
+      <a class="scroll-arrow" href="#aktuelle-tour" aria-label="Zur nächsten Sektion">
+        <i data-feather="chevron-down"></i>
+      </a>
+    </section>
+
+    <!-- Aktuelle Tour -->
+    <section id="aktuelle-tour" class="section">
+      <div class="container">
+        <h2 class="section-title animate-on-scroll slide-in-right">Aktuelle Tour</h2>
+
+        <article
+          class="tour-card card animate-on-scroll fade-up"
+          style="--scroll-delay: 0.14s"
+          aria-label="Aktuelle Tour – Leuchtberg, Schäferhalle & Wanfrieder Hafen"
+        >
+          <div class="tour-card__media">
+            <img src="/assets/route.jpeg" alt="Route Karte (Platzhalter)" />
+          </div>
+
+          <div class="tour-card__body">
+            <span class="badge badge--green">JETZT BUCHBAR</span>
+            <h2>Leuchtberg, Schäferhalle &amp; Wanfrieder Hafen</h2>
+
+            <div class="stats-grid" aria-label="Tour-Statistiken">
+              <div class="stat">
+                <span class="icon"><i data-feather="activity"></i></span><span>Strecke: 34,7 km</span>
+              </div>
+              <div class="stat">
+                <span class="icon"><i data-feather="clock"></i></span><span>Dauer: ca. 3–4 Stunden</span>
+              </div>
+              <div class="stat">
+                <span class="icon"><i data-feather="trending-up"></i></span><span>Anstieg: 299 m</span>
+              </div>
+              <div class="stat">
+                <span class="icon"><i data-feather="users"></i></span><span>Kleine Gruppen</span>
+              </div>
+              <div class="stat">
+                <span class="icon"><i data-feather="tag"></i></span><span>Ab 7 € pro Person</span>
+              </div>
+              <div class="stat">
+                <span class="icon"><i data-feather="check-circle"></i></span><span>Auch für Einsteiger</span>
+              </div>
+            </div>
+
+            <button
+              type="button"
+              class="btn btn--primary btn-primary btn--wide"
+              data-open-booking="ebike-leuchtberg"
+            >
+              Jetzt anmelden
+            </button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Über uns -->
+    <section id="ueber-uns" class="section bg-light">
+      <div class="container">
+        <div class="about-wrap">
+          <div class="animate-on-scroll slide-in-right">
+            <h2 class="section-title">Wer steckt hinter TonyTours?</h2>
+            <p class="ueber-uns-text">
+              Nach meiner Zeit beim Militär bin ich 2001 in die
+              Werra-Meißner-Region gekommen und einfach geblieben.
+              Was als Zufall begann, wurde zur größten Entscheidung
+              meines Lebens.
+              <br><br>
+              Denn der Werra-Meißner-Kreis ist keine gewöhnliche Region.
+              Berge, Seen, die Werra, sanfte Hügel und unzählige versteckte
+              Ecken, die sich von allem rundherum abheben. Hier habe ich
+              meine Liebe zur Natur gefunden. Hier habe ich meine Wurzeln
+              in den Boden gerammt. Der Werra-Meißner-Kreis ist meine Heimat.
+              <br><br>
+              Und genau das möchte ich teilen.
+              <br><br>
+              Mit TonyTours nehme ich dich mit auf geführte E-Bike-Touren,
+              Motorradtouren und Wanderungen durch das Werratal und seine
+              Umgebung – persönlich, authentisch und mit dem Blick eines
+              Einheimischen. Denn auf kleinem Raum gibt es hier wirklich
+              unglaublich viel zu entdecken!
+            </p>
+
+            <div class="badge-row" aria-label="TonyTours Stärken">
+              <span class="tag">Lokaler Guide</span>
+              <span class="tag">E-Bike Experte</span>
+              <span class="tag">Naturkenner</span>
+            </div>
+          </div>
+
+          <div class="about-photo animate-on-scroll fade-up" style="--scroll-delay: 0.18s">
+            <img
+              src="/assets/tony-mit-hund.png"
+              alt="Schwarz-Weiß-Porträt von Tony mit seinem Hund – das Gesicht hinter TonyTours."
+              width="800"
+              height="1200"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tour-Gebiete -->
+    <section id="orte" class="section">
+      <div class="container">
+        <h2 class="section-title animate-on-scroll slide-in-right">Unsere Tour-Gebiete</h2>
+
+        <div class="grid-2 orte-grid">
+          <!-- Fotos: /assets/Eschwege_Tour.jpg, Wanfried_Tour.jpg, Hoher_Meissner_Tour.jpg, Werratal_Tour.jpg -->
+          <a class="ort-card ort-card--eschwege animate-on-scroll fade-up" href="touren.html#tour-leuchtberg" aria-label="Zur Tour Leuchtberg, Schäferhalle und Wanfrieder Hafen">
+            <div class="overlay ort-card-content">
+              <i data-feather="map-pin" class="map-pin-icon"></i>
+              <h3>Eschwege</h3>
+              <p>Historische Altstadt &amp; Werraufer – unser Startpunkt</p>
+            </div>
+          </a>
+
+          <a class="ort-card ort-card--wanfried animate-on-scroll fade-up" href="touren.html#tour-leuchtberg" aria-label="Zur Tour Leuchtberg, Schäferhalle und Wanfrieder Hafen">
+            <div class="overlay ort-card-content">
+              <i data-feather="map-pin" class="map-pin-icon"></i>
+              <h3>Wanfried</h3>
+              <p>Wanfrieder Hafen &amp; malerische Flusslandschaft</p>
+            </div>
+          </a>
+
+          <a class="ort-card ort-card--meissner animate-on-scroll fade-up" href="touren.html#tour-hoher-meissner" aria-label="Zur Tour Hoher Meißner">
+            <div class="overlay ort-card-content">
+              <i data-feather="map-pin" class="map-pin-icon"></i>
+              <h3>Hoher Meißner</h3>
+              <p>Naturschutzgebiet mit atemberaubenden Aussichten</p>
+            </div>
+          </a>
+
+          <a class="ort-card ort-card--werratal animate-on-scroll fade-up" href="touren.html#tour-werratal" aria-label="Zur Tour Wanfried und Werraufer">
+            <div class="overlay ort-card-content">
+              <i data-feather="map-pin" class="map-pin-icon"></i>
+              <h3>Werratal</h3>
+              <p>Ruhige Flussradwege durch unberührte Natur</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Bottom -->
+    <section class="section cta-section" id="cta">
+      <div class="container animate-on-scroll fade-up">
+        <h2>Bereit für dein Abenteuer?</h2>
+        <p>Sichere dir deinen Platz auf der nächsten Tour – kleine Gruppen, persönliche Betreuung.</p>
+        <div class="cta-badges">
+          <span class="cta-badge">Lokaler Guide</span>
+          <span class="cta-badge">Kleine Gruppen</span>
+          <span class="cta-badge">Persönliche Betreuung</span>
+        </div>
+        <a class="btn btn-primary btn-cta" href="buchung.html">Jetzt Tour buchen</a>
+      </div>
+    </section>
+
+    <div
+      id="booking-modal"
+      class="booking-modal"
+      hidden
+      aria-hidden="true"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="booking-modal-title"
+    >
+      <div class="booking-modal__backdrop" data-close-booking tabindex="-1"></div>
+      <div class="booking-modal__panel">
+        <div class="booking-modal__header">
+          <div>
+            <h2 id="booking-modal-title">Tour buchen</h2>
+            <p class="booking-modal__sub">In wenigen Schritten zur Buchung – persönlich bei TonyTours.</p>
+          </div>
+          <button type="button" class="booking-modal__close" data-close-booking aria-label="Schließen">
+            <i data-feather="x" aria-hidden="true"></i>
+          </button>
+        </div>
+
+        <div class="booking-modal__body">
+          <div id="booking-step-1">
+            <p class="booking-steps" id="booking-step-label">Schritt 1 von 2 – Deine Daten</p>
+            <form id="booking-form-step1" novalidate>
+              <input type="hidden" name="tourId" value="" />
+              <div class="booking-form-grid">
+                <div class="booking-field">
+                  <label for="booking-vorname">Vorname <span aria-hidden="true">*</span></label>
+                  <input class="booking-input" id="booking-vorname" name="vorname" type="text" autocomplete="given-name" required />
+                  <span class="booking-field-error" data-error-for="vorname"></span>
+                </div>
+                <div class="booking-field">
+                  <label for="booking-nachname">Nachname <span aria-hidden="true">*</span></label>
+                  <input class="booking-input" id="booking-nachname" name="nachname" type="text" autocomplete="family-name" required />
+                  <span class="booking-field-error" data-error-for="nachname"></span>
+                </div>
+                <div class="booking-field booking-field--full">
+                  <label for="booking-email">E-Mail <span aria-hidden="true">*</span></label>
+                  <input class="booking-input" id="booking-email" name="email" type="email" autocomplete="email" required />
+                  <span class="booking-field-error" data-error-for="email"></span>
+                </div>
+                <div class="booking-field booking-field--full">
+                  <label for="booking-telefon">Telefonnummer <span aria-hidden="true">*</span></label>
+                  <input class="booking-input" id="booking-telefon" name="telefon" type="tel" autocomplete="tel" required />
+                  <span class="booking-field-error" data-error-for="telefon"></span>
+                </div>
+                <div class="booking-field">
+                  <label for="booking-datum">Gewünschtes Datum <span aria-hidden="true">*</span></label>
+                  <input class="booking-input" id="booking-datum" name="datum" type="date" required />
+                  <span class="booking-field-error" data-error-for="datum"></span>
+                </div>
+                <div class="booking-field">
+                  <label for="booking-erwachsene">Anzahl Erwachsene <span aria-hidden="true">*</span></label>
+                  <input class="booking-input" id="booking-erwachsene" name="erwachsene" type="number" min="0" max="50" value="1" required />
+                  <span class="booking-field-error" data-error-for="erwachsene"></span>
+                </div>
+                <div class="booking-field">
+                  <label for="booking-kinder">Anzahl Kinder</label>
+                  <input class="booking-input" id="booking-kinder" name="kinder" type="number" min="0" max="50" value="0" />
+                  <span class="booking-field-error" data-error-for="kinder"></span>
+                </div>
+                <div class="booking-field booking-field--full">
+                  <span id="booking-tour-field-label">Tour <span aria-hidden="true">*</span></span>
+                  <div class="booking-tour-readonly" id="booking-selected-tour-label" aria-labelledby="booking-tour-field-label"></div>
+                </div>
+                <div class="booking-field booking-field--full">
+                  <label for="booking-nachricht">Nachricht <span class="booking-optional">(optional)</span></label>
+                  <textarea class="booking-textarea booking-input" id="booking-nachricht" name="nachricht" rows="3" placeholder="z. B. Kinder im Alter …, Wunschzeit, Fragen an Tony"></textarea>
+                </div>
+                <div class="booking-field booking-field--full booking-privacy">
+                  <input type="checkbox" id="booking-privacy" name="privacy" required />
+                  <label for="booking-privacy">
+                    Ich stimme zu, dass meine Angaben zur Bearbeitung der Buchungsanfrage verwendet werden.
+                    <a href="datenschutz.html" target="_blank" rel="noopener">Datenschutzhinweise</a>
+                    <span aria-hidden="true"> *</span>
+                  </label>
+                  <span class="booking-field-error" data-error-for="privacy"></span>
+                </div>
+              </div>
+              <div class="booking-actions">
+                <button type="button" class="btn btn--ghost" data-close-booking>Abbrechen</button>
+                <button type="submit" class="btn btn--primary btn-primary" id="booking-btn-step1">Weiter zur Zahlung</button>
+              </div>
+            </form>
+          </div>
+
+          <div id="booking-step-2" hidden>
+            <p class="booking-steps">Schritt 2 von 2 – Checkout</p>
+            <p class="booking-checkout-lead">
+              Bitte prüfe deine Angaben. Bei festen Preisen leiten wir dich im nächsten Schritt zu SumUp weiter.
+              Bei Anfrage-Touren wird stattdessen direkt deine Tour-Anfrage versendet.
+            </p>
+            <div id="booking-checkout-summary"></div>
+            <div id="booking-payment-notice" class="booking-payment-notice" hidden></div>
+            <form id="booking-form-checkout" novalidate>
+              <div class="booking-actions">
+                <button type="button" class="btn btn--ghost" id="booking-btn-back">Zurück</button>
+                <button type="submit" class="btn btn--primary btn-primary" id="booking-btn-checkout">Weiter zur Zahlung</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container footer-top">
+        <div class="footer-brand">
+          <a class="brand" href="index.html">
+            <img src="/assets/logo.jpeg" alt="TonyTours Logo" />
+          </a>
+          <div class="tagline">Geführte E-Bike-Touren im Werra-Meißner-Kreis</div>
+          <div class="social-row" aria-label="TonyTours bei Instagram">
+            <a
+              class="footer-social-icon"
+              href="https://www.instagram.com/tonytours2026/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="TonyTours auf Instagram (@tonytours2026)"
+            ><i data-feather="instagram"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h3>Quick links</h3>
+          <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="touren.html">Touren</a>
+            <a href="aktuelles.html">Aktuelles</a>
+            <a href="buchung.html">Buchen</a>
+            <a href="kontakt.html">Kontakt</a>
+            <a href="impressum.html">Impressum</a>
+            <a href="datenschutz.html">Datenschutz</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h3>Kontakt</h3>
+          <div class="footer-links">
+            <div class="contact-line">
+              <i data-feather="map-pin"></i><span>Eschwege, Werra-Meißner-Kreis</span>
+            </div>
+            <a href="mailto:info@tonytours.de" class="footer-kontakt-link">
+              <i data-feather="mail"></i>
+              info@tonytours.de
+            </a>
+            <a href="tel:+4915733250134" class="footer-kontakt-link">
+              <i data-feather="phone"></i>
+              +49 157 33250134
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="container bottom-inner">
+          <span>© 2026 TonyTours</span>
+          <a href="impressum.html">Impressum</a>
+          <span>·</span>
+          <a href="datenschutz.html">Datenschutz</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/main.js?v=202604205"></script>
+    <script src="js/scroll-reveal.js?v=202604091"></script>
+    <script src="js/buchung-booking.js"></script>
+    <script>
+      feather.replace();
+    </script>
+  </body>
+</html>

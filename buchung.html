@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Deine Tour buchen – Preise & Leistungen sowie Buchungsanfrage senden." />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/touren-booking.css?v=2026040902" />
+    <link rel="stylesheet" href="css/scroll-reveal.css?v=202604092" />
+    <script src="https://unpkg.com/feather-icons"></script>
+    <title>TonyTours – Buchen</title>
+  </head>
+  <body class="page-buchung">
+    <!-- Header -->
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="index.html" aria-label="TonyTours Startseite">
+          <img src="/assets/logo.jpeg" alt="TonyTours Logo" />
+        </a>
+
+        <nav class="nav-desktop" aria-label="Hauptnavigation">
+          <a class="nav-link" href="index.html">Home</a>
+          <a class="nav-link" href="touren.html">Touren</a>
+          <a class="nav-link" href="aktuelles.html">Aktuelles</a>
+          <a class="nav-link active" href="buchung.html">Buchen</a>
+          <a class="nav-link" href="kontakt.html">Kontakt</a>
+        </nav>
+
+        <div class="header-cta">
+          <a class="btn btn--primary btn-primary btn-book-header" href="#" onclick="event.preventDefault(); if (typeof window.oeffneModal === 'function') window.oeffneModal('ebike', 'TonyTours Tour');">Jetzt buchen</a>
+          <button class="hamburger" type="button" aria-label="Menü öffnen"><i data-feather="menu"></i></button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile overlay + navigation -->
+    <div class="mobile-overlay" aria-hidden="true"></div>
+    <nav class="mobile-nav" aria-label="Mobiles Menü">
+      <a href="index.html">Home</a>
+      <a href="touren.html">Touren</a>
+      <a href="aktuelles.html">Aktuelles</a>
+      <a href="buchung.html">Buchen</a>
+      <a href="kontakt.html">Kontakt</a>
+      <a class="btn btn--primary btn-primary mobile-cta" href="#" onclick="event.preventDefault(); if (typeof window.oeffneModal === 'function') window.oeffneModal('ebike', 'TonyTours Tour');">Jetzt buchen</a>
+    </nav>
+
+    <!-- Hero (Video + dunkles Overlay) -->
+    <section class="page-hero buchung-hero" aria-label="Buchen Hero">
+      <video
+        id="video-buchung"
+        class="buchung-hero-video"
+        data-src="assets/Tour-Buchen-Video.mp4?v=buchung"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="auto"
+        aria-hidden="true"
+      ></video>
+      <div class="buchung-hero-overlay" aria-hidden="true"></div>
+      <div class="page-hero-content animate-on-scroll fade-up">
+        <h1>Deine Tour buchen</h1>
+        <p>Kleine Gruppen · Persönliche Betreuung · Unvergessliche Erlebnisse</p>
+      </div>
+    </section>
+
+    <!-- Preise & Leistungen -->
+    <section class="section">
+      <div class="container price-wrap">
+        <h2 class="section-title animate-on-scroll fade-up">Preise &amp; Leistungen</h2>
+
+        <table class="table animate-on-scroll fade-up" aria-label="Preise Tabelle">
+          <thead>
+            <tr>
+              <th>Leistung</th>
+              <th>Preis</th>
+              <th>Hinweis</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Erwachsene</td>
+              <td>10,00 €</td>
+              <td>Pro Person · inkl. Führung</td>
+            </tr>
+            <tr>
+              <td>Kinder</td>
+              <td>7,00 €</td>
+              <td>Pro Person · inkl. Führung</td>
+            </tr>
+            <tr>
+              <td>E-Bike-Verleih</td>
+              <td>Auf Anfrage</td>
+              <td>Nicht im Grundpreis</td>
+            </tr>
+            <tr>
+              <td>Gruppen (ab 8)</td>
+              <td>Sonderpreis</td>
+              <td>Bitte anfragen</td>
+            </tr>
+            <tr class="motorrad-preis-zeile">
+              <td>Motorrad-Tour</td>
+              <td>
+                <span class="preis-alt">69,00 €</span>
+                <span class="preis-neu">49,00 €</span>
+                <span class="preis-badge">Aktionspreis</span>
+              </td>
+              <td>Pro Person · inkl. Führung · Begrenzte Plätze</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Tour Info Boxes -->
+        <div class="icon-grid" aria-label="Tour-Infos">
+          <div class="info-box animate-on-scroll fade-up">
+            <div class="ico"><i data-feather="clock"></i></div>
+            <div>
+              <b>Dauer</b>
+              <span>ca. 3–4 Stunden</span>
+            </div>
+          </div>
+          <div class="info-box animate-on-scroll fade-up">
+            <div class="ico"><i data-feather="activity"></i></div>
+            <div>
+              <b>Strecke</b>
+              <span>30–45 km</span>
+            </div>
+          </div>
+          <div class="info-box animate-on-scroll fade-up">
+            <div class="ico"><i data-feather="users"></i></div>
+            <div>
+              <b>Teilnehmer</b>
+              <span>Kleine Gruppen</span>
+            </div>
+          </div>
+          <div class="info-box animate-on-scroll fade-up">
+            <div class="ico"><i data-feather="map-pin"></i></div>
+            <div>
+              <b>Start/Ziel</b>
+              <span>Nach Absprache</span>
+            </div>
+          </div>
+          <div class="info-box animate-on-scroll fade-up">
+            <div class="ico"><i data-feather="zap"></i></div>
+            <div>
+              <b>E-Bike</b>
+              <span>Empfohlen (nicht inkl.)</span>
+            </div>
+          </div>
+          <div class="info-box animate-on-scroll fade-up">
+            <div class="ico"><i data-feather="check-circle"></i></div>
+            <div>
+              <b>Niveau</b>
+              <span>Auch für Einsteiger</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Buchungsauswahl -->
+    <section class="section quick-book-section quick-book-section--booking-page" id="tour-direkt-buchen" aria-labelledby="quick-book-heading">
+      <div class="container">
+        <div class="booking-page-catalog">
+          <div class="quick-book__intro quick-book__intro--booking-page animate-on-scroll fade-up">
+            <h2 id="quick-book-heading">Tour auswählen &amp; direkt anfragen</h2>
+            <p>Wähle deine Tour und sende uns deine Buchungsanfrage in wenigen Schritten.</p>
+          </div>
+
+          <h3 class="quick-book__block-title animate-on-scroll fade-up">Fahrrad- &amp; E-Bike-Touren</h3>
+          <div id="quick-book-ebike" class="quick-book__grid quick-book__grid--ebike" aria-label="E-Bike- und Fahrradtouren zum Buchen"></div>
+
+          <h3 class="quick-book__block-title animate-on-scroll fade-up">Motorrad-Touren</h3>
+          <div id="quick-book-moto" class="quick-book__grid quick-book__grid--moto" aria-label="Motorradtouren zum Buchen"></div>
+        </div>
+      </div>
+    </section>
+
+    <div
+      id="buchungsModal"
+      class="modal-overlay"
+      style="display: none"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="buchungs-modal-title"
+      aria-hidden="true"
+    >
+      <div class="modal-box">
+        <button type="button" class="modal-close" onclick="schliesseModal()" aria-label="Schließen">&#x2715;</button>
+        <h2 id="buchungs-modal-title">Tour buchen</h2>
+        <p class="modal-sub">In wenigen Schritten zur Buchung – persönlich bei TonyTours.</p>
+
+        <input type="hidden" id="selectedTourType" value="" />
+        <input type="hidden" id="selectedTourName" value="" />
+
+        <div class="modal-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="vorname">Vorname *</label>
+              <input type="text" id="vorname" name="vorname" required placeholder="Max" autocomplete="given-name" />
+            </div>
+            <div class="form-group">
+              <label for="nachname">Nachname *</label>
+              <input type="text" id="nachname" name="nachname" required placeholder="Mustermann" autocomplete="family-name" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">E-Mail *</label>
+            <input type="email" id="email" name="email" required placeholder="max@beispiel.de" autocomplete="email" />
+          </div>
+
+          <div class="form-group">
+            <label for="telefon">Telefonnummer *</label>
+            <input type="tel" id="telefon" name="telefon" required placeholder="+49 …" autocomplete="tel" />
+          </div>
+
+          <div class="form-group">
+            <label for="datum">Gewünschtes Datum *</label>
+            <input type="date" id="datum" name="datum" required />
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="erwachsene">Anzahl Erwachsene *</label>
+              <input type="number" id="erwachsene" name="erwachsene" min="1" value="1" onchange="berechnePreis()" />
+            </div>
+            <div class="form-group" id="kinderFeld">
+              <label for="kinder">Anzahl Kinder</label>
+              <input type="number" id="kinder" name="kinder" min="0" value="0" onchange="berechnePreis()" />
+            </div>
+          </div>
+
+          <div class="preis-uebersicht" id="preisUebersicht">
+            <div class="preis-zeile">
+              <span id="preisLabel">Gesamtpreis</span>
+              <span id="gesamtpreis" class="preis-gesamt">0 €</span>
+            </div>
+            <p class="preis-hinweis" id="preisHinweis"></p>
+          </div>
+
+          <div class="modal-buttons">
+            <button type="button" class="btn-secondary" onclick="schliesseModal()">Abbrechen</button>
+            <button type="button" class="btn-primary" onclick="weiterZuSumUp()">Weiter zu SumUp →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Parallel: Buchungsdaten per E-Mail (Formspree). REPLACE_BOOKING_ENDPOINT durch eure Form-ID ersetzen (z. B. xyzabc123). -->
+    <form
+      id="buchungsFormspree"
+      action="https://formspree.io/f/REPLACE_BOOKING_ENDPOINT"
+      method="POST"
+      class="buchungs-formspree"
+      hidden
+      aria-hidden="true"
+    >
+      <input type="hidden" name="vorname" id="fs_vorname" autocomplete="off" />
+      <input type="hidden" name="nachname" id="fs_nachname" autocomplete="off" />
+      <input type="hidden" name="email" id="fs_email" autocomplete="off" />
+      <input type="hidden" name="telefon" id="fs_telefon" autocomplete="off" />
+      <input type="hidden" name="datum" id="fs_datum" autocomplete="off" />
+      <input type="hidden" name="tour" id="fs_tour" autocomplete="off" />
+      <input type="hidden" name="tour_typ" id="fs_tour_typ" autocomplete="off" />
+      <input type="hidden" name="erwachsene" id="fs_erwachsene" autocomplete="off" />
+      <input type="hidden" name="kinder" id="fs_kinder" autocomplete="off" />
+      <input type="hidden" name="gesamtpreis" id="fs_preis" autocomplete="off" />
+      <input type="hidden" name="_subject" value="Neue Buchungsanfrage – TonyTours" />
+      <input type="hidden" name="_replyto" id="fs_replyto" autocomplete="off" />
+    </form>
+
+    <section class="section gpx-offer-section" id="gpx-offer" aria-labelledby="gpx-offer-title">
+      <div class="container">
+        <div class="gpx-offer-card">
+          <div class="gpx-offer__content">
+            <h2 id="gpx-offer-title" class="animate-on-scroll fade-up">🔥 Feierabend? Zeit für 243 Gründe, den Motor zu starten. 🔥</h2>
+
+            <div class="gpx-offer__story animate-on-scroll fade-up">
+              <p><strong>Stell dir vor:</strong><br />Der Tag war lang… aber jetzt gehört die Straße dir.</p>
+              <p><strong>243 Kurven.</strong><br /><strong>70 Kilometer pure Freiheit.</strong><br />Ein Flow, der dich alles vergessen lässt.</p>
+              <p>
+                Diese Strecke ist kein einfaches „von A nach B“.<br />
+                Sie ist ein Erlebnis.
+              </p>
+              <p>
+                Enge Kehren, flüssige Kurven, kleine Geraden zum Durchatmen –<br />
+                und mittendrin ein ganz besonderer Spot:
+              </p>
+              <p><strong>🏰 Das geheimnisvolle Schloss Rittershain – ein Lost Place mit Gänsehautfaktor.</strong></p>
+              <p>Hier hältst du kurz an…<br />Motor aus…<br />Stille…</p>
+              <p>und spürst, warum genau solche Momente unbezahlbar sind.</p>
+              <p>👉 Egal ob du einfach nur abschalten willst<br />👉 oder das perfekte Feierabend-Abenteuer suchst</p>
+              <p><strong>Diese Tour liefert dir genau das.</strong></p>
+            </div>
+
+            <div class="gpx-offer__badges animate-on-scroll fade-up" aria-label="Highlights der GPX Tour">
+              <span class="gpx-badge">243 Kurven</span>
+              <span class="gpx-badge">70 km Strecke</span>
+              <span class="gpx-badge">Perfekt für Feierabend</span>
+              <span class="gpx-badge">GPX sofort verfügbar</span>
+            </div>
+
+            <div class="gpx-offer__cta-block animate-on-scroll fade-up">
+              <p class="gpx-offer__price">💾 GPX-Datei – nur 7,99 €</p>
+              <button
+                class="btn btn--primary btn-primary gpx-offer__cta"
+                type="button"
+                id="gpx-buy-btn"
+                data-product-id="gpx-feierabendrunde"
+                data-product-name="GPX-Datei – Feierabendrunde Rittershain"
+                data-product-price="7.99"
+              >
+                Jetzt GPX kaufen
+              </button>
+              <p class="gpx-offer__trust">Nach dem Kauf direkt verfügbar und mit gängigen Navi-Apps nutzbar.</p>
+              <p id="gpx-buy-status" class="gpx-offer__status" hidden></p>
+            </div>
+          </div>
+          <div class="gpx-offer__media animate-on-scroll fade-up" aria-hidden="true">
+            <video class="gpx-offer__video" autoplay muted loop playsinline preload="metadata">
+              <source src="assets/Abend-Strecke.mp4" type="video/mp4" />
+            </video>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container footer-top">
+        <div class="footer-brand animate-on-scroll fade-up">
+          <a class="brand" href="index.html">
+            <img src="/assets/logo.jpeg" alt="TonyTours Logo" />
+          </a>
+          <div class="tagline">Geführte E-Bike-Touren im Werra-Meißner-Kreis</div>
+          <div class="social-row" aria-label="TonyTours bei Instagram">
+            <a
+              class="footer-social-icon"
+              href="https://www.instagram.com/tonytours2026/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="TonyTours auf Instagram (@tonytours2026)"
+            ><i data-feather="instagram"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col animate-on-scroll fade-up">
+          <h3>Quick links</h3>
+          <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="touren.html">Touren</a>
+            <a href="aktuelles.html">Aktuelles</a>
+            <a href="buchung.html">Buchen</a>
+            <a href="kontakt.html">Kontakt</a>
+            <a href="impressum.html">Impressum</a>
+            <a href="datenschutz.html">Datenschutz</a>
+          </div>
+        </div>
+
+        <div class="footer-col animate-on-scroll fade-up">
+          <h3>Kontakt</h3>
+          <div class="footer-links">
+            <div class="contact-line">
+              <i data-feather="map-pin"></i><span>Eschwege, Werra-Meißner-Kreis</span>
+            </div>
+            <a href="mailto:info@tonytours.de" class="footer-kontakt-link">
+              <i data-feather="mail"></i>
+              info@tonytours.de
+            </a>
+            <a href="tel:+4915733250134" class="footer-kontakt-link">
+              <i data-feather="phone"></i>
+              +49 157 33250134
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom animate-on-scroll fade-up">
+        <div class="container bottom-inner">
+          <span>© 2026 TonyTours</span>
+          <a href="impressum.html">Impressum</a>
+          <span>·</span>
+          <a href="datenschutz.html">Datenschutz</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/main.js?v=202604205"></script>
+    <script src="js/buchung-sumup-modal.js?v=202604204"></script>
+    <script src="js/buchung-booking.js?v=202604204"></script>
+    <script src="js/scroll-reveal.js?v=202604092"></script>
+    <script>feather.replace()</script>
+  </body>
+</html>

@@ -1,0 +1,298 @@
+/**
+ * TonyTours – Scroll-Reveal (site-wide)
+ * Intersection Observer setzt .is-visible; Animationen laufen einmalig.
+ */
+
+.animate-on-scroll {
+  --reveal-duration: 2s;
+  opacity: 0;
+  transition:
+    opacity var(--reveal-duration) cubic-bezier(0.22, 1, 0.36, 1),
+    transform var(--reveal-duration) cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--scroll-delay, 0s);
+  will-change: opacity, transform;
+}
+
+.animate-on-scroll.fade-up {
+  transform: translateY(1.15rem);
+}
+
+/* Text rechts: Bewegung von links nach rechts (Start leicht links) */
+.animate-on-scroll.slide-in-left {
+  transform: translateX(-1.4rem);
+}
+
+/* Text links: Bewegung von rechts nach links (Start leicht rechts) */
+.animate-on-scroll.slide-in-right {
+  transform: translateX(1.4rem);
+}
+
+.animate-on-scroll.is-visible {
+  opacity: 1;
+  transform: translate(0, 0);
+  will-change: auto;
+}
+
+/* Gestaffelte Ort-Karten auf der Startseite */
+#orte .orte-grid > a.ort-card.animate-on-scroll.fade-up:nth-child(1) {
+  --scroll-delay: 0.06s;
+}
+#orte .orte-grid > a.ort-card.animate-on-scroll.fade-up:nth-child(2) {
+  --scroll-delay: 0.12s;
+}
+#orte .orte-grid > a.ort-card.animate-on-scroll.fade-up:nth-child(3) {
+  --scroll-delay: 0.18s;
+}
+#orte .orte-grid > a.ort-card.animate-on-scroll.fade-up:nth-child(4) {
+  --scroll-delay: 0.24s;
+}
+
+/* ── Aktuelles (aktuelles.html): Überschrift + zwei Karten-Reihen ── */
+.section--blog-overview .blog-grid > .blog-card.animate-on-scroll.fade-up:nth-child(1) {
+  --scroll-delay: 0s;
+}
+.section--blog-overview .blog-grid > .blog-card.animate-on-scroll.fade-up:nth-child(2) {
+  --scroll-delay: 0.1s;
+}
+.section--blog-overview .blog-grid > .blog-card.animate-on-scroll.fade-up:nth-child(3) {
+  --scroll-delay: 0.2s;
+}
+.section--blog-overview .blog-grid > .blog-card.animate-on-scroll.fade-up:nth-child(4) {
+  --scroll-delay: 0.38s;
+}
+.section--blog-overview .blog-grid > .blog-card.animate-on-scroll.fade-up:nth-child(5) {
+  --scroll-delay: 0.48s;
+}
+.section--blog-overview .blog-grid > .blog-card.animate-on-scroll.fade-up:nth-child(6) {
+  --scroll-delay: 0.58s;
+}
+
+/* ── Blog-Posts: Fließtext-Abschnitte (leicht gestaffelt) ── */
+.post-content > .post-body-block.animate-on-scroll.fade-up:nth-child(1) {
+  --scroll-delay: 0s;
+}
+.post-content > .post-body-block.animate-on-scroll.fade-up:nth-child(2) {
+  --scroll-delay: 0.05s;
+}
+.post-content > .post-body-block.animate-on-scroll.fade-up:nth-child(3) {
+  --scroll-delay: 0.1s;
+}
+.post-content > .post-body-block.animate-on-scroll.fade-up:nth-child(4) {
+  --scroll-delay: 0.15s;
+}
+.post-content > .post-body-block.animate-on-scroll.fade-up:nth-child(5) {
+  --scroll-delay: 0.2s;
+}
+.post-content > .post-body-block.animate-on-scroll.fade-up:nth-child(6) {
+  --scroll-delay: 0.25s;
+}
+
+/* ── Blog-Posts: rechte Sidebar (von rechts einblenden) ── */
+.post-sidebar .sidebar-card.animate-on-scroll.slide-in-right:nth-child(1) {
+  --scroll-delay: 0s;
+}
+.post-sidebar .sidebar-card.animate-on-scroll.slide-in-right:nth-child(2) {
+  --scroll-delay: 0.12s;
+}
+
+/* ── Buchen (buchung.html, body.page-buchung): alles fade-up + Stagger ── */
+.page-buchung .cta-hero .container.animate-on-scroll.fade-up {
+  --scroll-delay: 0s;
+}
+
+.page-buchung .price-wrap > .section-title.animate-on-scroll.fade-up {
+  --scroll-delay: 0s;
+}
+.page-buchung .price-wrap > .table.animate-on-scroll.fade-up {
+  --scroll-delay: 0.1s;
+}
+.page-buchung .price-wrap .icon-grid > .info-box.animate-on-scroll.fade-up:nth-child(1) {
+  --scroll-delay: 0.18s;
+}
+.page-buchung .price-wrap .icon-grid > .info-box.animate-on-scroll.fade-up:nth-child(2) {
+  --scroll-delay: 0.24s;
+}
+.page-buchung .price-wrap .icon-grid > .info-box.animate-on-scroll.fade-up:nth-child(3) {
+  --scroll-delay: 0.3s;
+}
+.page-buchung .price-wrap .icon-grid > .info-box.animate-on-scroll.fade-up:nth-child(4) {
+  --scroll-delay: 0.36s;
+}
+.page-buchung .price-wrap .icon-grid > .info-box.animate-on-scroll.fade-up:nth-child(5) {
+  --scroll-delay: 0.42s;
+}
+.page-buchung .price-wrap .icon-grid > .info-box.animate-on-scroll.fade-up:nth-child(6) {
+  --scroll-delay: 0.48s;
+}
+
+.page-buchung .booking-page-catalog > .quick-book__intro.animate-on-scroll.fade-up {
+  --scroll-delay: 0s;
+}
+.page-buchung .booking-page-catalog > h3.quick-book__block-title.animate-on-scroll.fade-up:nth-of-type(1) {
+  --scroll-delay: 0.08s;
+}
+.page-buchung .booking-page-catalog > h3.quick-book__block-title.animate-on-scroll.fade-up:nth-of-type(2) {
+  --scroll-delay: 0.18s;
+}
+
+.page-buchung .gpx-offer-section .gpx-offer__content > h2.animate-on-scroll.fade-up {
+  --scroll-delay: 0s;
+}
+.page-buchung .gpx-offer-section .gpx-offer__story.animate-on-scroll.fade-up {
+  --scroll-delay: 0.1s;
+}
+.page-buchung .gpx-offer-section .gpx-offer__badges.animate-on-scroll.fade-up {
+  --scroll-delay: 0.18s;
+}
+.page-buchung .gpx-offer-section .gpx-offer__cta-block.animate-on-scroll.fade-up {
+  --scroll-delay: 0.26s;
+}
+.page-buchung .gpx-offer-section .gpx-offer__media.animate-on-scroll.fade-up {
+  --scroll-delay: 0.34s;
+}
+
+.page-buchung .site-footer .container.footer-top > .footer-brand.animate-on-scroll.fade-up {
+  --scroll-delay: 0s;
+}
+.page-buchung .site-footer .container.footer-top > .footer-col.animate-on-scroll.fade-up:nth-child(2) {
+  --scroll-delay: 0.1s;
+}
+.page-buchung .site-footer .container.footer-top > .footer-col.animate-on-scroll.fade-up:nth-child(3) {
+  --scroll-delay: 0.18s;
+}
+.page-buchung .site-footer .footer-bottom.animate-on-scroll.fade-up {
+  --scroll-delay: 0.24s;
+}
+
+/* Modal: Schritt 1 */
+.page-buchung .booking-modal__header > div.animate-on-scroll.fade-up:first-of-type {
+  --scroll-delay: 0s;
+}
+.page-buchung #booking-step-1 > .booking-steps.animate-on-scroll.fade-up {
+  --scroll-delay: 0.06s;
+}
+.page-buchung #booking-form-step1 .booking-form-grid > .booking-field.animate-on-scroll.fade-up:nth-child(1) {
+  --scroll-delay: 0.1s;
+}
+.page-buchung #booking-form-step1 .booking-form-grid > .booking-field.animate-on-scroll.fade-up:nth-child(2) {
+  --scroll-delay: 0.14s;
+}
+.page-buchung #booking-form-step1 .booking-form-grid > .booking-field.animate-on-scroll.fade-up:nth-child(3) {
+  --scroll-delay: 0.18s;
+}
+.page-buchung #booking-form-step1 .booking-form-grid > .booking-field.animate-on-scroll.fade-up:nth-child(4) {
+  --scroll-delay: 0.22s;
+}
+.page-buchung #booking-form-step1 .booking-form-grid > .booking-field.animate-on-scroll.fade-up:nth-child(5) {
+  --scroll-delay: 0.26s;
+}
+.page-buchung #booking-form-step1 .booking-form-grid > .booking-field.animate-on-scroll.fade-up:nth-child(6) {
+  --scroll-delay: 0.3s;
+}
+.page-buchung #booking-form-step1 .booking-form-grid > .booking-field.animate-on-scroll.fade-up:nth-child(7) {
+  --scroll-delay: 0.34s;
+}
+.page-buchung #booking-form-step1 .booking-form-grid > .booking-field.animate-on-scroll.fade-up:nth-child(8) {
+  --scroll-delay: 0.38s;
+}
+.page-buchung #booking-form-step1 .booking-form-grid > .booking-field.animate-on-scroll.fade-up:nth-child(9) {
+  --scroll-delay: 0.42s;
+}
+.page-buchung #booking-form-step1 .booking-form-grid > .booking-field.animate-on-scroll.fade-up:nth-child(10) {
+  --scroll-delay: 0.46s;
+}
+.page-buchung #booking-form-step1 .booking-actions.animate-on-scroll.fade-up {
+  --scroll-delay: 0.52s;
+}
+
+/* Modal: Schritt 2 */
+.page-buchung #booking-step-2 > p.booking-steps.animate-on-scroll.fade-up {
+  --scroll-delay: 0s;
+}
+.page-buchung #booking-step-2 > p.booking-checkout-lead.animate-on-scroll.fade-up {
+  --scroll-delay: 0.08s;
+}
+.page-buchung #booking-step-2 #booking-form-checkout .booking-actions.animate-on-scroll.fade-up {
+  --scroll-delay: 0.18s;
+}
+
+/* ── Kontakt (kontakt.html, body.page-kontakt): fade-up + Stagger ── */
+.page-kontakt .hero .container.animate-on-scroll.fade-up {
+  --scroll-delay: 0s;
+}
+
+.page-kontakt .contact-card--aside > h2.animate-on-scroll.fade-up {
+  --scroll-delay: 0s;
+}
+.page-kontakt .contact-card--aside > p.contact-line.animate-on-scroll.fade-up:nth-of-type(1) {
+  --scroll-delay: 0.07s;
+}
+.page-kontakt .contact-card--aside > p.contact-line.animate-on-scroll.fade-up:nth-of-type(2) {
+  --scroll-delay: 0.14s;
+}
+.page-kontakt .contact-card--aside > p.contact-line.animate-on-scroll.fade-up:nth-of-type(3) {
+  --scroll-delay: 0.21s;
+}
+.page-kontakt .contact-card--aside > p.animate-on-scroll.fade-up:not(.contact-line) {
+  --scroll-delay: 0.28s;
+}
+.page-kontakt .contact-card--aside > .social-icon-row.animate-on-scroll.fade-up {
+  --scroll-delay: 0.35s;
+}
+
+.page-kontakt .form-wrap--kontakt-main > h2.animate-on-scroll.fade-up {
+  --scroll-delay: 0.34s;
+}
+.page-kontakt .form-wrap--kontakt-main > .form-success.animate-on-scroll.fade-up {
+  --scroll-delay: 0.4s;
+}
+.page-kontakt .form-wrap--kontakt-main .form-grid--kontakt > .field.animate-on-scroll.fade-up:nth-child(1) {
+  --scroll-delay: 0.44s;
+}
+.page-kontakt .form-wrap--kontakt-main .form-grid--kontakt > .field.animate-on-scroll.fade-up:nth-child(2) {
+  --scroll-delay: 0.5s;
+}
+.page-kontakt .form-wrap--kontakt-main .form-grid--kontakt > .field.animate-on-scroll.fade-up:nth-child(3) {
+  --scroll-delay: 0.56s;
+}
+.page-kontakt .form-wrap--kontakt-main .form-grid--kontakt > .field.animate-on-scroll.fade-up:nth-child(4) {
+  --scroll-delay: 0.62s;
+}
+.page-kontakt .form-wrap--kontakt-main .form-actions--kontakt.animate-on-scroll.fade-up {
+  --scroll-delay: 0.68s;
+}
+
+.page-kontakt .region-map .region-map__title.animate-on-scroll.fade-up {
+  --scroll-delay: 0s;
+}
+.page-kontakt .region-map .region-map__lead.animate-on-scroll.fade-up {
+  --scroll-delay: 0.09s;
+}
+.page-kontakt .region-map .region-map__embed.animate-on-scroll.fade-up {
+  --scroll-delay: 0.18s;
+}
+.page-kontakt .region-map .region-map__attr.animate-on-scroll.fade-up {
+  --scroll-delay: 0.27s;
+}
+
+.page-kontakt .site-footer .container.footer-top > .footer-brand.animate-on-scroll.fade-up {
+  --scroll-delay: 0s;
+}
+.page-kontakt .site-footer .container.footer-top > .footer-col.animate-on-scroll.fade-up:nth-child(2) {
+  --scroll-delay: 0.1s;
+}
+.page-kontakt .site-footer .container.footer-top > .footer-col.animate-on-scroll.fade-up:nth-child(3) {
+  --scroll-delay: 0.18s;
+}
+.page-kontakt .site-footer .footer-bottom.animate-on-scroll.fade-up {
+  --scroll-delay: 0.26s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    will-change: auto;
+  }
+}
