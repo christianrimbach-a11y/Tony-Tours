@@ -2572,3 +2572,99 @@ section.cta-section,
   margin-bottom:18px !important;
 }
 
+/* Buchung: SumUp-Zahlungsschritte (Overlay) */
+.zahlungsOverlay__panel{
+  background:#fff;
+  border-radius:20px;
+  padding:40px;
+  max-width:500px;
+  width:100%;
+  max-height:85vh;
+  overflow-y:auto;
+  box-shadow:0 18px 48px rgba(0,0,0,0.22);
+}
+.zahlungsOverlay__title{
+  font-size:1.4rem;
+  font-weight:900;
+  margin:0 0 8px;
+  color:#1a1a1a;
+  font-family:'Nunito',sans-serif;
+}
+.zahlungsOverlay__lead{
+  color:#666;
+  font-size:0.9rem;
+  margin:0 0 24px;
+  line-height:1.5;
+}
+.zahlungsOverlay__betrag{
+  color:#f5a623;
+}
+.zahlungsOverlay__hint{
+  font-size:0.8rem;
+  color:#999;
+  text-align:center;
+  margin:20px 0 0;
+  line-height:1.5;
+}
+.zahlungsOverlay__close{
+  width:100%;
+  margin-top:16px;
+  padding:12px;
+  background:#f5f5f5;
+  border:none;
+  border-radius:10px;
+  font-weight:700;
+  cursor:pointer;
+  color:#666;
+  font-family:inherit;
+  font-size:1rem;
+}
+.zahlungsOverlay__close:hover{
+  background:#eaeaea;
+}
+
+.zahl-schritt{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:14px 16px;
+  border:2px solid #eee;
+  border-radius:12px;
+  margin-bottom:10px;
+  transition:background 0.3s ease, border-color 0.3s ease;
+}
+.schritt-num{
+  width:32px;
+  height:32px;
+  background:#f5a623;
+  color:#fff;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:900;
+  font-size:0.9rem;
+  flex-shrink:0;
+}
+.schritt-text{
+  flex:1;
+  font-weight:600;
+  font-size:0.95rem;
+  color:#333;
+}
+.schritt-btn{
+  background:#f5a623;
+  color:#fff !important;
+  padding:8px 16px;
+  border-radius:20px;
+  text-decoration:none;
+  font-weight:800;
+  font-size:0.85rem;
+  white-space:nowrap;
+  transition:background 0.2s ease, color 0.2s ease;
+}
+.schritt-btn:hover{
+  background:#d4881a;
+  color:#fff !important;
+}
+
