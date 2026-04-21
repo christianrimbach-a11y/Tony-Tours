@@ -1,5 +1,5 @@
 /** Formspree Kontaktformular (kontakt.html): ID aus dem Dashboard eintragen. */
-const FORMSPREE_KONTAKT_ENDPOINT = "https://formspree.io/f/REPLACE_KONTAKT_ENDPOINT";
+const FORMSPREE_KONTAKT_ENDPOINT = "https://formspree.io/f/meevrjkl";
 
 document.addEventListener("DOMContentLoaded", () => {
   const body = document.body;
