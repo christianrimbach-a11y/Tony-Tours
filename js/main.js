@@ -1,8 +1,21 @@
 /** Formspree Kontaktformular (kontakt.html): ID aus dem Dashboard eintragen. */
 const FORMSPREE_KONTAKT_ENDPOINT = "https://formspree.io/f/meevrjkl";
 
+/** SumUp Pay Links (Buchungslogik siehe js/buchung-sumup-modal.js; GPX-Button buchung.html). */
+const LINKS = {
+  motorrad: "https://pay.sumup.com/b2c/QBFVRQXR",
+  ebike_erwachsene: "https://pay.sumup.com/b2c/Q7M0X5CH",
+  ebike_kinder: "https://pay.sumup.com/b2c/QXFHT4DH",
+  gpx: "https://pay.sumup.com/b2c/QXEERGZV"
+};
+
 document.addEventListener("DOMContentLoaded", () => {
   const body = document.body;
+
+  const gpxKaufBtn = document.querySelector("a.gpx-btn");
+  if (gpxKaufBtn && LINKS.gpx) {
+    gpxKaufBtn.setAttribute("href", LINKS.gpx);
+  }
 
   // Hero-/Seiten-Videos: src erst nach DOMContentLoaded setzen (data-src + ?v=… gegen aggressives Cross-Page-Caching)
   document.querySelectorAll("video[data-src]").forEach((video) => {

@@ -9,7 +9,8 @@
   const SUMUP_PAY_LINKS = {
     motorrad: "https://pay.sumup.com/b2c/QBFVRQXR",
     ebikeErwachsene: "https://pay.sumup.com/b2c/Q7M0X5CH",
-    ebikeKinder: "https://pay.sumup.com/b2c/QXFHT4DH"
+    ebikeKinder: "https://pay.sumup.com/b2c/QXFHT4DH",
+    gpx: "https://pay.sumup.com/b2c/QXEERGZV"
   };
 
   /** Formspree: Buchungs-Backup-Mails. ID im Dashboard eintragen. */

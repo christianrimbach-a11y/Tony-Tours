@@ -7,6 +7,15 @@
 
   const MAILTO = "info@tonytours.de";
   const SUMUP_CREATE_ENDPOINT = "/api/create-sumup-checkout";
+  /** Gleiche URL wie in main.js (LINKS.gpx); Fallback wenn main.js nicht geladen. */
+  const GPX_SUMUP_PAY_URL_FALLBACK = "https://pay.sumup.com/b2c/QXEERGZV";
+
+  function getGpxSumUpPayUrl() {
+    try {
+      if (typeof LINKS !== "undefined" && LINKS && LINKS.gpx) return LINKS.gpx;
+    } catch (_e) {}
+    return GPX_SUMUP_PAY_URL_FALLBACK;
+  }
 
   const TOURS = {
     "ebike-leuchtberg": {
@@ -589,45 +598,18 @@
     gpxBuyStatus.style.borderColor = isError ? "rgba(231, 76, 60, 0.45)" : "rgba(255, 255, 255, 0.26)";
   }
 
-  async function startGpxCheckout() {
-    if (!gpxBuyBtn) return;
-    const productId = gpxBuyBtn.getAttribute("data-product-id") || "gpx-feierabendrunde";
-    const productName = gpxBuyBtn.getAttribute("data-product-name") || "GPX-Datei";
-    const productPrice = parseFloat(gpxBuyBtn.getAttribute("data-product-price") || "7.99");
-    const payload = {
-      amount: productPrice.toFixed(2),
-      currency: "EUR",
-      checkout_reference: "TT-GPX-" + Date.now(),
-      return_url: window.location.origin + "/buchung.html?payment=success&product=gpx",
-      success_url: window.location.origin + "/buchung.html?payment=success&product=gpx",
-      product: {
-        id: productId,
-        name: productName,
-        type: "digital_product"
-      }
-    };
-
-    const res = await fetch(SUMUP_CREATE_ENDPOINT, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload)
-    });
-    if (!res.ok) throw new Error("HTTP " + res.status);
-    const json = await res.json();
-    if (!json || !json.checkout_url) throw new Error("Kein checkout_url im Response.");
-    window.location.href = json.checkout_url;
+  /** Direkter SumUp Pay Link (kein Backend nötig). */
+  function startGpxCheckout() {
+    var url = getGpxSumUpPayUrl();
+    window.open(url, "_blank", "noopener,noreferrer");
   }
 
-  gpxBuyBtn?.addEventListener("click", async () => {
-    try {
-      setGpxStatus("Checkout wird vorbereitet ...", false);
-      await startGpxCheckout();
-    } catch (_err) {
-      setGpxStatus(
-        "Der Kauf kann noch nicht gestartet werden. Bitte den Backend-Endpunkt /api/create-sumup-checkout mit echten SumUp-Zugangsdaten aktivieren.",
-        true
-      );
-    }
+  gpxBuyBtn?.addEventListener("click", function () {
+    setGpxStatus("SumUp öffnet sich in einem neuen Tab …", false);
+    startGpxCheckout();
+    window.setTimeout(function () {
+      setGpxStatus("Bitte die Zahlung im neuen Tab abschließen.", false);
+    }, 400);
   });
 
   window.openBookingModal = function (tourId) {
