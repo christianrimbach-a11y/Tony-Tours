@@ -8,8 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/touren-booking.css?v=2026040902" />
+    <link rel="stylesheet" href="css/style.css?v=202604241836" />
+    <link rel="stylesheet" href="css/touren-booking.css?v=202604241845" />
     <link rel="stylesheet" href="css/scroll-reveal.css?v=202604092" />
     <script src="https://unpkg.com/feather-icons"></script>
     <title>TonyTours – Buchen</title>
@@ -158,50 +158,6 @@
               <span>Auch für Einsteiger</span>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- GPX Einzelkauf (SumUp) -->
-    <section class="gpx-section" aria-labelledby="gpx-kauf-heading">
-      <div class="gpx-card animate-on-scroll fade-up">
-        <div class="gpx-icon" aria-hidden="true">
-          <i data-feather="map"></i>
-        </div>
-        <div class="gpx-content">
-          <h3 id="gpx-kauf-heading">GPX-Datei herunterladen</h3>
-          <p>
-            Lade die exakte Routendatei für dein GPS-Gerät oder deine Fahrrad-App herunter. Kompatibel mit Garmin, Komoot, Wahoo und allen gängigen
-            GPS-Geräten.
-          </p>
-          <ul class="gpx-features">
-            <li>
-              <i data-feather="check-circle"></i>
-              Exakte Route Leuchtberg – Wanfrieder Hafen
-            </li>
-            <li>
-              <i data-feather="check-circle"></i>
-              Kompatibel mit allen GPS-Geräten &amp; Apps
-            </li>
-            <li>
-              <i data-feather="check-circle"></i>
-              Einmalig kaufen, dauerhaft nutzen
-            </li>
-          </ul>
-        </div>
-        <div class="gpx-kauf">
-          <div class="gpx-preis">
-            <span class="gpx-preis-wert">7,99 €</span>
-          </div>
-          <a
-            href="https://pay.sumup.com/b2c/QXEERGZV"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn btn--primary btn-primary gpx-btn"
-          >
-            GPX-Datei kaufen →
-          </a>
-          <p class="gpx-hinweis">Nach der Zahlung erhältst du die Datei per E-Mail an info@tonytours.de</p>
         </div>
       </div>
     </section>
@@ -371,6 +327,60 @@
             </video>
           </div>
         </div>
+
+        <div class="gpx-offer-card gpx-offer-card--route2">
+          <div class="gpx-offer__content">
+            <h2 class="animate-on-scroll fade-up">213 Kurven. 65 Kilometer. Und ein Ort, den nicht jeder kennt.</h2>
+
+            <div class="gpx-offer__story animate-on-scroll fade-up">
+              <p>
+                Diese Strecke beginnt wie ein Versprechen. Kurve für Kurve ziehst du deine Linie, spürst den Grip, findest deinen Rhythmus. Du bist im
+                Flow. Alles passt.
+              </p>
+              <p>
+                Und dann hältst du an - eher aus Gefühl als aus Plan. Ein versteckter Wasserfall. Kühle Luft, feiner Nebel auf der Haut, ein Moment,
+                der alles langsamer macht.
+              </p>
+              <p>
+                Weiter oben öffnet sich das Land. Das Werratal liegt dir zu Füßen, ein Kloster wacht über die Weite. Und irgendwann erreichst du den
+                Wanfrieder Hafen. Warm, lebendig, entspannt.
+              </p>
+            </div>
+
+            <div class="gpx-offer__badges animate-on-scroll fade-up" aria-label="Highlights der GPX Route 2">
+              <span class="gpx-badge">213 Kurven</span>
+              <span class="gpx-badge">65 km Strecke</span>
+              <span class="gpx-badge">Wasserfall-Spot</span>
+              <span class="gpx-badge">GPX sofort verfügbar</span>
+            </div>
+
+            <div class="gpx-offer__cta-block animate-on-scroll fade-up">
+              <p class="gpx-offer__price">💾 GPX-Datei – nur 7,99 €</p>
+              <a href="https://pay.sumup.com/b2c/QXEERGZV" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn-primary gpx-offer__cta">
+                Jetzt GPX kaufen
+              </a>
+              <p class="gpx-offer__trust">Nach der Zahlung erhältst du die Datei per E-Mail an info@tonytours.de</p>
+            </div>
+          </div>
+          <div class="gpx-offer__media gpx-offer__media--slideshow animate-on-scroll fade-up" aria-hidden="true">
+            <div class="gpx-offer2-slideshow" id="gpx-route2-slideshow">
+              <div class="gpx-offer2-slide is-active" style="background-image: url('assets/gpx2-kreuz.jpeg');"></div>
+              <div class="gpx-offer2-slide" style="background-image: url('assets/gpx2-panorama.jpeg');"></div>
+              <div class="gpx-offer2-slide" style="background-image: url('assets/gpx2-kirche.jpeg');"></div>
+              <div class="gpx-offer2-slide" style="background-image: url('assets/gpx2-wasserfall.jpeg');"></div>
+              <div class="gpx-offer2-slide" style="background-image: url('assets/gpx2-pavillon.jpeg');"></div>
+              <div class="gpx-offer2-slide" style="background-image: url('assets/gpx2-werratal.jpeg');"></div>
+            </div>
+            <div class="gpx-offer2-dots" id="gpx-route2-dots">
+              <button type="button" class="gpx-offer2-dot is-active" onclick="gpxRoute2GoTo(0)" aria-label="Bild 1 anzeigen"></button>
+              <button type="button" class="gpx-offer2-dot" onclick="gpxRoute2GoTo(1)" aria-label="Bild 2 anzeigen"></button>
+              <button type="button" class="gpx-offer2-dot" onclick="gpxRoute2GoTo(2)" aria-label="Bild 3 anzeigen"></button>
+              <button type="button" class="gpx-offer2-dot" onclick="gpxRoute2GoTo(3)" aria-label="Bild 4 anzeigen"></button>
+              <button type="button" class="gpx-offer2-dot" onclick="gpxRoute2GoTo(4)" aria-label="Bild 5 anzeigen"></button>
+              <button type="button" class="gpx-offer2-dot" onclick="gpxRoute2GoTo(5)" aria-label="Bild 6 anzeigen"></button>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -434,7 +444,7 @@
       </div>
     </footer>
 
-    <script src="js/main.js?v=202604211900"></script>
+    <script src="js/main.js?v=202604241845"></script>
     <script src="js/buchung-sumup-modal.js?v=202604211830"></script>
     <script src="js/buchung-booking.js?v=202604212300"></script>
     <script src="js/scroll-reveal.js?v=202604092"></script>
