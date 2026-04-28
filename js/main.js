@@ -400,3 +400,40 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 })();
 
+// ── GPX Route 3 Slideshow ─────────────────────
+(function () {
+  let current = 0;
+  const intervalMs = 4000;
+  let timerId = 0;
+
+  function update(index) {
+    const slides = document.querySelectorAll("#gpx-route3-slideshow .gpx-offer2-slide");
+    const dots = document.querySelectorAll("#gpx-route3-dots .gpx-offer2-dot");
+    if (!slides.length) return;
+
+    slides[current].classList.remove("is-active");
+    dots[current] && dots[current].classList.remove("is-active");
+
+    current = index !== undefined ? index : (current + 1) % slides.length;
+
+    slides[current].classList.add("is-active");
+    dots[current] && dots[current].classList.add("is-active");
+  }
+
+  window.gpxRoute3GoTo = function (index) {
+    current = index - 1;
+    update(index);
+    if (timerId) {
+      clearInterval(timerId);
+      timerId = window.setInterval(update, intervalMs);
+    }
+  };
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const slides = document.querySelectorAll("#gpx-route3-slideshow .gpx-offer2-slide");
+    if (slides.length > 0) {
+      timerId = window.setInterval(update, intervalMs);
+    }
+  });
+})();
+
