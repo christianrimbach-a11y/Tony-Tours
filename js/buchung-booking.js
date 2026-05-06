@@ -582,7 +582,10 @@
 
   initLegacyBookingModal();
 
-  const gpxBuyBtn = document.getElementById("gpx-buy-btn");
+  const GPX_DANKE_URL = "/gpx-danke.html";
+  const GPX_PENDING_KEY = "gpx_purchase_pending";
+  const GPX_SELECTION_KEY = "gpx_purchase_selection";
+  const gpxBuyBtns = document.querySelectorAll(".gpx-buy-btn, #gpx-buy-btn");
   const gpxBuyStatus = document.getElementById("gpx-buy-status");
 
   function setGpxStatus(msg, isError) {
@@ -599,17 +602,57 @@
   }
 
   /** Direkter SumUp Pay Link (kein Backend nötig). */
-  function startGpxCheckout() {
-    var url = getGpxSumUpPayUrl();
+  function startGpxCheckout(url) {
     window.open(url, "_blank", "noopener,noreferrer");
   }
 
-  gpxBuyBtn?.addEventListener("click", function () {
-    setGpxStatus("SumUp öffnet sich in einem neuen Tab …", false);
-    startGpxCheckout();
-    window.setTimeout(function () {
-      setGpxStatus("Bitte die Zahlung im neuen Tab abschließen.", false);
-    }, 400);
+  function markGpxCheckoutStarted(selection) {
+    try {
+      sessionStorage.setItem(GPX_PENDING_KEY, String(Date.now()));
+      if (selection) sessionStorage.setItem(GPX_SELECTION_KEY, JSON.stringify(selection));
+    } catch (_e) {}
+  }
+
+  function maybeRedirectToDankePage() {
+    var startedAt = 0;
+    try {
+      startedAt = parseInt(sessionStorage.getItem(GPX_PENDING_KEY) || "0", 10);
+    } catch (_e) {
+      return;
+    }
+    if (!startedAt) return;
+    if (Date.now() - startedAt < 1500) return;
+    try {
+      sessionStorage.removeItem(GPX_PENDING_KEY);
+    } catch (_e) {}
+    var slug = "";
+    try {
+      var raw = sessionStorage.getItem(GPX_SELECTION_KEY) || "";
+      if (raw) slug = JSON.parse(raw).slug || "";
+    } catch (_e) {}
+    window.location.href = slug ? GPX_DANKE_URL + "?tour=" + encodeURIComponent(slug) : GPX_DANKE_URL;
+  }
+
+  gpxBuyBtns.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var url = btn.getAttribute("data-sumup-url") || getGpxSumUpPayUrl();
+      var selection = {
+        slug: btn.getAttribute("data-gpx-slug") || "",
+        title: btn.getAttribute("data-gpx-title") || "GPX-Datei",
+        file: btn.getAttribute("data-gpx-file") || ""
+      };
+      setGpxStatus("SumUp öffnet sich in einem neuen Tab …", false);
+      markGpxCheckoutStarted(selection);
+      startGpxCheckout(url);
+      window.setTimeout(function () {
+        setGpxStatus("Bitte die Zahlung im neuen Tab abschließen.", false);
+      }, 400);
+    });
+  });
+
+  window.addEventListener("focus", maybeRedirectToDankePage);
+  document.addEventListener("visibilitychange", function () {
+    if (!document.hidden) maybeRedirectToDankePage();
   });
 
   window.openBookingModal = function (tourId) {

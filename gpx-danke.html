@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Danke für deinen Kauf. Hier kannst du deine GPX-Dateien herunterladen." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css?v=202604241836" />
+    <title>Danke - GPX Download | TonyTours</title>
+  </head>
+  <body class="page-buchung">
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="index.html" aria-label="TonyTours Startseite">
+          <img src="/assets/logo.jpeg" alt="TonyTours Logo" />
+        </a>
+        <nav class="nav-desktop" aria-label="Hauptnavigation">
+          <a class="nav-link" href="index.html">Home</a>
+          <a class="nav-link" href="touren.html">Touren</a>
+          <a class="nav-link" href="aktuelles.html">Aktuelles</a>
+          <a class="nav-link active" href="buchung.html">Buchen</a>
+          <a class="nav-link" href="kontakt.html">Kontakt</a>
+        </nav>
+      </div>
+    </header>
+
+    <section class="section gpx-danke">
+      <div class="container">
+        <div class="gpx-danke__card">
+          <p class="gpx-danke__eyebrow">Vielen Dank fuer deinen Kauf</p>
+          <h1 class="gpx-danke__title">Deine GPX-Dateien stehen bereit</h1>
+          <p class="gpx-danke__subtitle">Lade hier deine Tourdateien herunter und importiere sie in deine Navi-App.</p>
+
+          <div class="gpx-danke__grid" id="gpx-danke-grid"></div>
+
+          <p class="gpx-danke__hint">
+            Falls ein Download nicht startet, schreibe kurz an
+            <a href="mailto:info@tonytours.de">info@tonytours.de</a>.
+          </p>
+
+          <div class="gpx-danke__actions">
+            <a class="btn btn--ghost" href="buchung.html#gpx-offer">Zurueck zur Buchungsseite</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <div class="footer-bottom">
+        <div class="container bottom-inner">
+          <span>© 2026 TonyTours</span>
+          <a href="impressum.html">Impressum</a>
+          <span>·</span>
+          <a href="datenschutz.html">Datenschutz</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/main.js?v=202604241845"></script>
+    <script>
+      (function () {
+        var GPX_SELECTION_KEY = "gpx_purchase_selection";
+        var tours = {
+          "feierabendrunde-rittershain": {
+            title: "1. Feierabendrunde mit 243 der schoensten Kurven im Werra Meissner Kreis",
+            file: "/assets/downloads/feierabendrunde-rittershain.gpx"
+          },
+          "romantische-sonntagsrunde-mit-wasserfall": {
+            title: "2. Romantische Sonntagsrunde mit Wasserfall",
+            file: "/assets/downloads/romantische-sonntagsrunde-mit-wasserfall.gpx"
+          },
+          "die-378-um-den-meissner": {
+            title: "3. Die 378 um den Meissner",
+            file: "/assets/downloads/die-378-um-den-meissner.gpx"
+          }
+        };
+
+        function readSelection() {
+          var params = new URLSearchParams(window.location.search);
+          var slug = params.get("tour") || "";
+          if (slug && tours[slug]) return tours[slug];
+
+          try {
+            var raw = sessionStorage.getItem(GPX_SELECTION_KEY) || "";
+            if (!raw) return null;
+            var parsed = JSON.parse(raw);
+            if (parsed && parsed.slug && tours[parsed.slug]) return tours[parsed.slug];
+          } catch (_e) {}
+          return null;
+        }
+
+        var grid = document.getElementById("gpx-danke-grid");
+        if (!grid) return;
+
+        var selected = readSelection();
+        if (!selected) {
+          grid.innerHTML =
+            '<p class="gpx-danke__no-selection">Kein Kaufkontext gefunden. Bitte starte den Kauf direkt ueber die Buchungsseite.</p>';
+          return;
+        }
+
+        var a = document.createElement("a");
+        a.className = "btn btn--primary btn-primary gpx-danke__download";
+        a.href = selected.file;
+        a.setAttribute("download", "");
+        a.textContent = selected.title;
+        grid.appendChild(a);
+      })();
+    </script>
+  </body>
+</html>
