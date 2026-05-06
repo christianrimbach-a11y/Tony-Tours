@@ -400,6 +400,91 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 })();
 
+// ── Fahranfänger Section Animationen ──────────
+document.addEventListener("DOMContentLoaded", function () {
+  // Scroll-Reveal Observer
+  const revealElements = document.querySelectorAll(".fa-reveal");
+
+  if (revealElements.length > 0) {
+    const observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    revealElements.forEach(function (el) {
+      observer.observe(el);
+    });
+  }
+
+  // Headline Wort-für-Wort Animation
+  const headline = document.querySelector(".fa-headline");
+
+  if (headline) {
+    const sourceHtml = headline.innerHTML.replace(/<br\s*\/?>/gi, " __FA_BR__ ");
+    const words = sourceHtml.trim().split(/\s+/);
+    headline.innerHTML = words
+      .map(function (word, i) {
+        if (word === "__FA_BR__") return "<br />";
+        return '<span class="fa-headline-word" style="transition-delay:' + (0.2 + i * 0.08) + 's">' + word + " </span>";
+      })
+      .join("");
+
+    const headlineObserver = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            headline.querySelectorAll(".fa-headline-word").forEach(function (word) {
+              word.classList.add("visible");
+            });
+            headlineObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    headlineObserver.observe(headline);
+  }
+
+  // Zähler-Animation für den Preis
+  const preisEl = document.querySelector(".fa-preis-betrag");
+
+  if (preisEl) {
+    const zielpreis = 25;
+    let gestartet = false;
+
+    const preisObserver = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting && !gestartet) {
+            gestartet = true;
+            let aktuell = 0;
+            const schritte = 30;
+            const intervall = setInterval(function () {
+              aktuell += zielpreis / schritte;
+              if (aktuell >= zielpreis) {
+                aktuell = zielpreis;
+                clearInterval(intervall);
+              }
+              preisEl.textContent = Math.round(aktuell) + " €";
+            }, 40);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    preisObserver.observe(preisEl);
+  }
+});
+
 // ── GPX Route 3 Slideshow ─────────────────────
 (function () {
   let current = 0;
